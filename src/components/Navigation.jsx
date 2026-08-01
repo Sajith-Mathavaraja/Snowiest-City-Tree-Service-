@@ -270,6 +270,7 @@ const Navigation = () => {
               <button 
                 key="center" 
                 onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle Quick Actions Menu"
                 className="bg-primary text-white p-4 rounded-full -mt-8 shadow-lg shadow-primary/40 border-4 border-secondary transition-transform hover:scale-105"
               >
                 <Plus size={28} />
@@ -278,6 +279,7 @@ const Navigation = () => {
               <button
                 key={index}
                 onClick={() => scrollToSection(item.id)}
+                aria-label={`Navigate to ${item.id === '#' ? 'top' : item.id} section`}
                 className={`p-2 transition-colors ${activeSection === item.id ? 'text-accent font-bold scale-110' : 'text-gray-300'}`}
               >
                 {item.icon}
