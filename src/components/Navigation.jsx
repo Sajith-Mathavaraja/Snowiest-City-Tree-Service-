@@ -31,51 +31,57 @@ const Navigation = () => {
     { icon: <Phone size={22} />, id: 'contact' },
   ];
 
-  const sectionOffsetsRef = useRef([]);
+  // Passive scroll listener for header background scroll toggle
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Cache and calculate offsets on load and resize
+  // Use high-performance IntersectionObserver to track active scrolling section
   useEffect(() => {
     if (location.pathname !== '/') return;
 
-    const updateOffsets = () => {
-      const offsets = allNavLinks.map(link => {
-        const el = document.getElementById(link.id);
-        return {
-          id: link.id,
-          offsetTop: el ? el.offsetTop : 0
-        };
-      });
-      sectionOffsetsRef.current = offsets;
-    };
+    const sectionIds = ['home', 'about', 'services', 'why-us', 'gallery', 'reviews', 'contact'];
+    const intersectingSections = new Map();
 
-    const timer = setTimeout(updateOffsets, 600);
-    window.addEventListener('resize', updateOffsets);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          intersectingSections.set(entry.target.id, entry.isIntersecting);
+        });
+
+        // Set the active section as the first intersecting section in document order
+        let foundActive = false;
+        for (const id of sectionIds) {
+          if (intersectingSections.get(id)) {
+            setActiveSection(id);
+            foundActive = true;
+            break;
+          }
+        }
+        
+        // Default back to home if scrolling near top and nothing matches
+        if (!foundActive && window.scrollY < 100) {
+          setActiveSection('home');
+        }
+      },
+      {
+        rootMargin: '-20% 0px -40% 0px',
+        threshold: 0
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
     return () => {
-      clearTimeout(timer);
-      window.removeEventListener('resize', updateOffsets);
+      observer.disconnect();
     };
-  }, [location.pathname]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Only highlight sections based on scroll if on home page
-      if (location.pathname !== '/') return;
-
-      setScrolled(window.scrollY > 20);
-      
-      const scrollPosition = window.scrollY + 220;
-      const offsets = sectionOffsetsRef.current;
-      for (let i = offsets.length - 1; i >= 0; i--) {
-        if (offsets[i].offsetTop <= scrollPosition) {
-          setActiveSection(offsets[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
   // Reset active section when navigating away from homepage to avoid highlighting header links on legal pages
@@ -83,7 +89,10 @@ const Navigation = () => {
     if (location.pathname !== '/') {
       setActiveSection('');
     } else {
-      setActiveSection('home');
+      // Small timeout to let IntersectionObserver initialize and override if needed
+      setTimeout(() => {
+        if (window.scrollY < 100) setActiveSection('home');
+      }, 50);
     }
   }, [location.pathname]);
 
