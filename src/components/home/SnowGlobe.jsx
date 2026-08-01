@@ -124,9 +124,9 @@ const SnowGlobe = () => {
                   <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-accent/20 text-accent flex items-center justify-center mb-2 sm:mb-2.5 shadow-inner group-hover/center:scale-105 transition-transform duration-300">
                     <activeService.icon className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
                   </div>
-                  <h4 className="font-heading font-extrabold text-[0.7rem] sm:text-xs md:text-sm text-white uppercase tracking-wider leading-tight max-w-[100px] sm:max-w-[130px]">
+                  <h3 className="font-heading font-extrabold text-[0.7rem] sm:text-xs md:text-sm text-white uppercase tracking-wider leading-tight max-w-[100px] sm:max-w-[130px]">
                     {activeService.title}
-                  </h4>
+                  </h3>
                 </motion.div>
               </AnimatePresence>
             </button>

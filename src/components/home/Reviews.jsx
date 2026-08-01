@@ -30,8 +30,8 @@ const Reviews = () => {
               </div>
               <p className="text-gray-200 mb-6 italic font-body">"{review.text}"</p>
               <div>
-                <h4 className="font-heading font-bold text-white">{review.name}</h4>
-                <p className="text-sm text-gray-400">{review.role}</p>
+                <h3 className="font-heading font-bold text-white">{review.name}</h3>
+                <p className="text-sm text-gray-300">{review.role}</p>
               </div>
             </div>
           ))}
