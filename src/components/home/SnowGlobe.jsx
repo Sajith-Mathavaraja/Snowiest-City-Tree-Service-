@@ -116,7 +116,7 @@ const SnowGlobe = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService.id}
-                  initial={{ scale: 0.8, opacity: 0 }}
+                  initial={false}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.8, opacity: 0 }}
                   transition={{ duration: 0.3 }}
@@ -187,7 +187,7 @@ const SnowGlobe = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService.id}
-                initial={{ opacity: 0, x: 30 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.4 }}
