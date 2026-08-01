@@ -2,20 +2,20 @@ import React from 'react';
 
 const projects = [
   {
-    before: `${import.meta.env.BASE_URL}gallery_removal_before.webp`,
-    after: `${import.meta.env.BASE_URL}gallery_removal_after.webp`,
+    before: 'https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@main/public/gallery_removal_before.webp',
+    after: 'https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@main/public/gallery_removal_after.webp',
     title: 'Hazardous Tree Removal',
     location: 'Buffalo, NY'
   },
   {
-    before: `${import.meta.env.BASE_URL}gallery_pruning_before.webp`,
-    after: `${import.meta.env.BASE_URL}gallery_pruning_after.webp`,
+    before: 'https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@main/public/gallery_pruning_before.webp',
+    after: 'https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@main/public/gallery_pruning_after.webp',
     title: 'Winter Canopy Pruning',
     location: 'Syracuse, NY'
   },
   {
     before: 'https://res.cloudinary.com/qzlxlo1n/image/upload/f_auto,q_auto,w_700,c_scale/v1785604942/gallery_stump_before_ux2fd1.jpg',
-    after: `${import.meta.env.BASE_URL}gallery_stump_after.webp`,
+    after: 'https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@main/public/gallery_stump_after.webp',
     title: 'Deep Stump Grinding',
     location: 'Rochester, NY'
   }
