@@ -74,6 +74,7 @@ const Hero = () => {
               src={`${import.meta.env.BASE_URL}hero_arborist.jpg`} 
               alt="Professional arborist climbing a majestic pine tree in winter" 
               className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
+              fetchPriority="high"
             />
             {/* Soft dark vignette gradient to integrate with the layout */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1F2933]/60 via-transparent to-[#1F2933]/30 pointer-events-none" />
