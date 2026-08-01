@@ -14,7 +14,7 @@ const projects = [
     location: 'Syracuse, NY'
   },
   {
-    before: 'https://res.cloudinary.com/qzlxlo1n/image/upload/v1785604942/gallery_stump_before_ux2fd1.jpg',
+    before: 'https://res.cloudinary.com/qzlxlo1n/image/upload/f_auto,q_auto,w_700,c_scale/v1785604942/gallery_stump_before_ux2fd1.jpg',
     after: `${import.meta.env.BASE_URL}gallery_stump_after.jpg`,
     title: 'Deep Stump Grinding',
     location: 'Rochester, NY'
