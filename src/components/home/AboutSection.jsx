@@ -34,7 +34,7 @@ const AboutSection = () => {
                 <p className="text-gray-200 font-semibold text-sm mt-1">Years Experience</p>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
-                <span className="text-4xl font-heading font-extrabold text-primary">100%</span>
+                <span className="text-4xl font-heading font-extrabold text-white">100%</span>
                 <p className="text-gray-200 font-semibold text-sm mt-1">Insured & Certified</p>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
@@ -55,7 +55,7 @@ const AboutSection = () => {
               {milestones.map((m, idx) => (
                 <div key={idx} className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-8 h-8 rounded-full bg-primary text-white font-bold text-xs flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-accent text-secondary font-bold text-xs flex items-center justify-center shrink-0">
                       {idx + 1}
                     </div>
                     {idx !== milestones.length - 1 && <div className="w-0.5 h-full bg-white/20 my-1" />}

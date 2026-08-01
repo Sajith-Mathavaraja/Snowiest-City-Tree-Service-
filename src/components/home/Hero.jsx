@@ -47,7 +47,7 @@ const Hero = () => {
           >
             <button 
               onClick={scrollToContact}
-              className="bg-primary text-white px-8 py-4 rounded-full font-bold text-base hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_20px_rgba(79,111,82,0.3)] flex items-center justify-center gap-2"
+              className="bg-accent text-secondary px-8 py-4 rounded-full font-bold text-base hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,210,255,0.3)] flex items-center justify-center gap-2"
             >
               Get Free Estimate
               <ArrowRight size={18} />
