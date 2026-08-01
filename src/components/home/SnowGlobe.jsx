@@ -110,7 +110,8 @@ const SnowGlobe = () => {
             {/* Center Circle: Shows Current Active Service Logo and Name - Clickable redirect */}
             <button 
               onClick={handleBookNow}
-              className="w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-xl border border-white/20 flex flex-col items-center justify-center text-center p-4 sm:p-5 shadow-[0_0_50px_rgba(255,255,255,0.05)] z-20 transition-all duration-300 group/center cursor-pointer"
+              className="w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full hover:bg-white/15 backdrop-blur-xl border border-white/20 flex flex-col items-center justify-center text-center p-4 sm:p-5 shadow-[0_0_50px_rgba(255,255,255,0.05)] z-20 transition-all duration-300 group/center cursor-pointer"
+              style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
             >
               <AnimatePresence mode="wait">
                 <motion.div
