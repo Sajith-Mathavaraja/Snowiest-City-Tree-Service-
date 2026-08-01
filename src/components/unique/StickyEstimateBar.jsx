@@ -34,7 +34,9 @@ const StickyEstimateBar = () => {
         >
           <div className="container mx-auto px-6 py-3.5 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Logo" className="w-9 h-9 rounded-full border border-accent/40 object-cover" />
+              <div className="w-9 h-9 rounded-full overflow-hidden border border-accent/40 shrink-0 flex items-center justify-center">
+                <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Logo" className="w-full h-full object-cover scale-[1.35]" />
+              </div>
               <div>
                 <h4 className="font-heading font-bold text-white text-base">Need Professional Tree Care?</h4>
                 <p className="text-xs text-gray-300">Fast on-site estimates by ISA certified arborists.</p>

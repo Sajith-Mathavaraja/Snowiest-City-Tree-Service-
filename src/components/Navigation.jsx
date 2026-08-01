@@ -133,11 +133,13 @@ const Navigation = () => {
               onClick={() => scrollToSection('home')} 
               className="flex items-center gap-3 hover:scale-105 transition-transform py-1.5 shrink-0 z-10"
             >
-              <img 
-                src={`${import.meta.env.BASE_URL}logo.jpg`} 
-                alt="Snowiest City Tree Service Logo" 
-                className="w-[2.2rem] h-[2.2rem] rounded-full object-cover border border-white/20 shadow-md" 
-              />
+              <div className="w-[2.2rem] h-[2.2rem] rounded-full overflow-hidden border border-white/20 shadow-md shrink-0 flex items-center justify-center">
+                <img 
+                  src={`${import.meta.env.BASE_URL}logo.jpg`} 
+                  alt="Snowiest City Tree Service Logo" 
+                  className="w-full h-full object-cover scale-[1.35]" 
+                />
+              </div>
               <span 
                 className="font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-sage to-[#00d2ff] uppercase whitespace-nowrap text-[0.88rem] tracking-[0.1em]"
               >
