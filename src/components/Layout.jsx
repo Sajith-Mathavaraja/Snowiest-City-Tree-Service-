@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 
 
 const Layout = ({ children }) => {
+  const [snowCounts, setSnowCounts] = useState({ slow: 15, mid: 15, fast: 10 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+      setSnowCounts(isMobile ? { slow: 6, mid: 6, fast: 3 } : { slow: 15, mid: 15, fast: 10 });
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-background text-white font-body">
       {/* Global Background Image - Symmetrical Winter Tree Branches Canopy */}
@@ -16,7 +29,7 @@ const Layout = ({ children }) => {
       {/* Global Upgraded Multi-Layer 3D Parallax Snow Animation */}
       <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden">
         {/* Layer 1: Back (Small & Slow) */}
-        {[...Array(15)].map((_, i) => (
+        {[...Array(snowCounts.slow)].map((_, i) => (
           <div 
             key={`slow-${i}`} 
             className="absolute bg-white/40 rounded-full animate-snow-slow"
@@ -30,7 +43,7 @@ const Layout = ({ children }) => {
           />
         ))}
         {/* Layer 2: Mid (Medium) */}
-        {[...Array(15)].map((_, i) => (
+        {[...Array(snowCounts.mid)].map((_, i) => (
           <div 
             key={`mid-${i}`} 
             className="absolute bg-white/60 rounded-full animate-snow-medium"
@@ -44,7 +57,7 @@ const Layout = ({ children }) => {
           />
         ))}
         {/* Layer 3: Front (Large & Fast, blurred for camera depth of field) */}
-        {[...Array(10)].map((_, i) => (
+        {[...Array(snowCounts.fast)].map((_, i) => (
           <div 
             key={`fast-${i}`} 
             className="absolute bg-white/30 blur-[1px] rounded-full animate-snow-fast"
