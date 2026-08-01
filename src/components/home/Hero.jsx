@@ -18,15 +18,6 @@ const Hero = () => {
         
         {/* Left Content */}
         <div className="flex-1 text-center lg:text-left max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 shadow-sm"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
-            Snowiest City Tree Service & Care
-          </motion.div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
