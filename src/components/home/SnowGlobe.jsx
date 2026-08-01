@@ -17,7 +17,7 @@ const services = [
     icon: AlertTriangle, 
     color: 'bg-red-600', 
     desc: 'Rapid storm damage mitigation when you need it most. Our specialized emergency crew is on standby 24/7 with heavy snow-clearing equipment to safely remove massive ice-laden limbs and fallen trees from roofs, driveways, and municipal access routes within hours.',
-    image: `${import.meta.env.BASE_URL}service_emergency.jpg`
+    image: `${import.meta.env.BASE_URL}service_emergency.webp`
   },
   { 
     id: 'pruning', 
@@ -25,7 +25,7 @@ const services = [
     icon: Scissors, 
     color: 'bg-amber-600', 
     desc: 'Enhance your landscape\'s health and structural resilience. We perform expert winter pruning to remove weak or dead branches, thin out dense canopies, and optimize wind flow. This prevents catastrophic branch failure from heavy lake-effect snow accumulation.',
-    image: `${import.meta.env.BASE_URL}service_pruning.jpg`
+    image: `${import.meta.env.BASE_URL}service_pruning.webp`
   },
   { 
     id: 'stump', 
@@ -33,7 +33,7 @@ const services = [
     icon: Leaf, 
     color: 'bg-emerald-600', 
     desc: 'Completely eliminate unsightly and hazardous tree stumps from your yard. Using high-powered hydraulic stump grinders, we grind stumps deep below grade, turning solid wood into clean mulch, destroying pests, and prepping the soil for spring landscaping.',
-    image: `${import.meta.env.BASE_URL}service_stump.jpg`
+    image: `${import.meta.env.BASE_URL}service_stump.webp`
   },
   { 
     id: 'health', 
@@ -41,7 +41,7 @@ const services = [
     icon: HeartPulse, 
     color: 'bg-teal-600', 
     desc: 'Proactive diagnostics to protect your trees from harsh winter conditions. Our ISA-certified arborists conduct thorough health audits, administer deep root organic fertilization, treat bark infestations, and implement custom disease mitigation plans.',
-    image: `${import.meta.env.BASE_URL}service_health.jpg`
+    image: `${import.meta.env.BASE_URL}service_health.webp`
   },
 ];
 

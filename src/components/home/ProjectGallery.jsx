@@ -2,20 +2,20 @@ import React from 'react';
 
 const projects = [
   {
-    before: `${import.meta.env.BASE_URL}gallery_removal_before.jpg`,
-    after: `${import.meta.env.BASE_URL}gallery_removal_after.jpg`,
+    before: `${import.meta.env.BASE_URL}gallery_removal_before.webp`,
+    after: `${import.meta.env.BASE_URL}gallery_removal_after.webp`,
     title: 'Hazardous Tree Removal',
     location: 'Buffalo, NY'
   },
   {
-    before: `${import.meta.env.BASE_URL}gallery_pruning_before.jpg`,
-    after: `${import.meta.env.BASE_URL}gallery_pruning_after.jpg`,
+    before: `${import.meta.env.BASE_URL}gallery_pruning_before.webp`,
+    after: `${import.meta.env.BASE_URL}gallery_pruning_after.webp`,
     title: 'Winter Canopy Pruning',
     location: 'Syracuse, NY'
   },
   {
     before: 'https://res.cloudinary.com/qzlxlo1n/image/upload/f_auto,q_auto,w_700,c_scale/v1785604942/gallery_stump_before_ux2fd1.jpg',
-    after: `${import.meta.env.BASE_URL}gallery_stump_after.jpg`,
+    after: `${import.meta.env.BASE_URL}gallery_stump_after.webp`,
     title: 'Deep Stump Grinding',
     location: 'Rochester, NY'
   }
