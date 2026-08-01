@@ -52,6 +52,15 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
+  // Reset active section when navigating away from homepage to avoid highlighting header links on legal pages
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      setActiveSection('');
+    } else {
+      setActiveSection('home');
+    }
+  }, [location.pathname]);
+
   // Handle incoming redirect hash scrolling
   useEffect(() => {
     if (location.pathname === '/' && location.hash) {
