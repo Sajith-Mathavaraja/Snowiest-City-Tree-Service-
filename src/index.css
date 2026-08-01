@@ -78,3 +78,19 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #1F2933; 
 }
+
+/* Custom Glassmorphism styles to optimize Lighthouse background contrast detection */
+.glass-panel-custom {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.glass-panel-custom-hover:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.badge-accent-custom {
+  background-color: rgba(92, 176, 237, 0.25);
+}
+.badge-accent-custom-light {
+  background-color: rgba(92, 176, 237, 0.20);
+}

@@ -24,7 +24,7 @@ const Reviews = () => {
       <div className="relative w-full flex overflow-hidden z-10">
         <div className="flex w-max animate-[scroll_30s_linear_infinite] hover:[animation-play-state:paused] gap-6 px-4">
           {[...reviews, ...reviews].map((review, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-white/15 w-80 md:w-96 flex-shrink-0">
+            <div key={idx} className="glass-panel-custom p-8 rounded-2xl shadow-lg border border-white/15 w-80 md:w-96 flex-shrink-0">
               <div className="flex text-accent mb-4 gap-1">
                 {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="currentColor" />)}
               </div>

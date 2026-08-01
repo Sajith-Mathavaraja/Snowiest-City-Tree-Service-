@@ -14,7 +14,7 @@ const AboutSection = () => {
       <div className="absolute inset-0 bg-[#1F2933]/60 backdrop-blur-[2px]" />
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <span className="text-white font-bold text-xs uppercase tracking-widest bg-accent/20 border border-accent/30 px-3.5 py-1.5 rounded-full">Our Story</span>
+          <span className="text-white font-bold text-xs uppercase tracking-widest badge-accent-custom-light border border-accent/30 px-3.5 py-1.5 rounded-full">Our Story</span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mt-4 mb-4">About Snowiest City Tree Service</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">Built on a foundation of safety, precision, and dedication to protecting local properties in severe winter weather.</p>
         </div>
@@ -28,19 +28,19 @@ const AboutSection = () => {
             </p>
 
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+              <div className="glass-panel-custom p-6 rounded-2xl border border-white/15">
                 <span className="text-4xl font-heading font-extrabold text-accent">10+</span>
                 <p className="text-gray-200 font-semibold text-sm mt-1">Years Experience</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+              <div className="glass-panel-custom p-6 rounded-2xl border border-white/15">
                 <span className="text-4xl font-heading font-extrabold text-white">100%</span>
                 <p className="text-gray-200 font-semibold text-sm mt-1">Insured & Certified</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+              <div className="glass-panel-custom p-6 rounded-2xl border border-white/15">
                 <span className="text-4xl font-heading font-extrabold text-accent">4.9★</span>
                 <p className="text-gray-200 font-semibold text-sm mt-1">Google Reviews</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+              <div className="glass-panel-custom p-6 rounded-2xl border border-white/15">
                 <span className="text-4xl font-heading font-extrabold text-white">24/7</span>
                 <p className="text-gray-200 font-semibold text-sm mt-1">Emergency Crew</p>
               </div>
@@ -48,7 +48,7 @@ const AboutSection = () => {
           </div>
 
           {/* Right Milestone Timeline */}
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/15 shadow-lg">
+          <div className="glass-panel-custom p-8 rounded-3xl border border-white/15 shadow-lg">
             <h4 className="text-xl font-heading font-bold text-white mb-6 border-b border-white/20 pb-4">Company Milestones</h4>
             <div className="space-y-6">
               {milestones.map((m, idx) => (
