@@ -1,4 +1,4 @@
-const CACHE_NAME = 'snowiest-city-cache-v1';
+const CACHE_NAME = 'snowiest-city-cache-v2';
 
 // Cache core document shells
 const ASSETS_TO_CACHE = [
@@ -31,12 +31,33 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Stale-While-Revalidate interception strategy
+// Cache interception strategy
 self.addEventListener('fetch', (event) => {
-  // Only handle standard GET requests
   if (event.request.method !== 'GET') return;
 
   const requestUrl = new URL(event.request.url);
+
+  // Network-First strategy for the main HTML shell to prevent caching deploy traps
+  const isHtml = event.request.mode === 'navigate' || requestUrl.pathname.endsWith('/') || requestUrl.pathname.endsWith('index.html');
+
+  if (isHtml) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches.match(event.request);
+        })
+    );
+    return;
+  }
 
   // Cache static assets from local origin, remote CDN images (Cloudinary), or Google Fonts
   const isLocalStatic = requestUrl.origin === self.location.origin;
