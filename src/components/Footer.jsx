@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 hover:scale-105 transition-transform mb-6">
-              <div className="w-14 h-14 rounded-full overflow-hidden border border-accent/60 shadow-[0_0_15px_rgba(0,210,255,0.2)] shrink-0 flex items-center justify-center bg-white/5">
+              <div className="w-14 h-14 rounded-full overflow-hidden border border-accent/60 shadow-md shrink-0 flex items-center justify-center bg-white/5">
                 <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Snowiest City Tree Service Logo" className="w-full h-full object-cover scale-[1.35]" />
               </div>
               <span className="font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-accent uppercase text-xs tracking-wider">

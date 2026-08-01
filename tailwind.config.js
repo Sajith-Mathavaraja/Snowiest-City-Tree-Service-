@@ -9,9 +9,9 @@ export default {
       colors: {
         primary: '#4F6F52',     // Forest Moss (Primary buttons/brand)
         secondary: '#1F2933',   // Deep Charcoal (Header/Footer/Titles)
-        accent: '#00d2ff',      // Cyan/Light Blue (CTA & Highlights)
+        accent: '#3b9ae1',      // Muted Winter Steel Blue (Softer CTAs & Highlights)
         success: '#4F6F52',
-        warning: '#00d2ff',
+        warning: '#3b9ae1',
         background: '#1F2933',  // Changed to Deep Charcoal for global dark theme
         card: 'rgba(31, 41, 51, 0.75)', // Frosted Deep Charcoal cards
         sage: '#D8E3D0',        // Sage (Secondary Cards/Accents)
