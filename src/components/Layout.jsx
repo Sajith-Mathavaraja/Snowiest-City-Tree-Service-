@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-background text-white font-body">
       {/* Global Background Image - Symmetrical Winter Tree Branches Canopy */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-85"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60')] bg-cover bg-center opacity-85"></div>
         {/* Charcoal tint overlay matching the #1F2933 theme for maximum global typography contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#1F2933]/90 via-[#1F2933]/70 to-[#1F2933]/85 mix-blend-multiply"></div>
       </div>
