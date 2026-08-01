@@ -12,19 +12,13 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* 1. Home Section */}
-      <section id="home">
-        <Hero />
-      </section>
+      <Hero />
 
       {/* 2. About Section */}
-      <section id="about">
-        <AboutSection />
-      </section>
+      <AboutSection />
 
       {/* 3. Services Section */}
-      <section id="services">
-        <SnowGlobe />
-      </section>
+      <SnowGlobe />
 
       {/* 4. Why Us Section */}
       <section id="why-us">
@@ -36,14 +30,10 @@ const Home = () => {
       <ProjectGallery />
 
       {/* 6. Reviews Section */}
-      <section id="reviews">
-        <Reviews />
-      </section>
+      <Reviews />
 
       {/* 7. Contact Section */}
-      <section id="contact">
-        <QuoteSection />
-      </section>
+      <QuoteSection />
     </div>
   );
 };

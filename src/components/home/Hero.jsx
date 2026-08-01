@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-24 pb-20 flex items-center justify-center overflow-hidden bg-transparent">
+    <section className="relative min-h-screen pt-24 pb-20 flex items-center justify-center overflow-hidden bg-transparent" id="home">
       <div className="container mx-auto px-6 relative z-20 flex flex-col lg:flex-row items-center justify-between gap-16 pt-2">
         
         {/* Left Content */}
