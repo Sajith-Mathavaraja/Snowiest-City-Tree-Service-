@@ -2,20 +2,20 @@ import React from 'react';
 
 const projects = [
   {
-    before: '/gallery_removal_before.jpg',
-    after: '/gallery_removal_after.jpg',
+    before: `${import.meta.env.BASE_URL}gallery_removal_before.jpg`,
+    after: `${import.meta.env.BASE_URL}gallery_removal_after.jpg`,
     title: 'Hazardous Tree Removal',
     location: 'Buffalo, NY'
   },
   {
-    before: '/gallery_pruning_before.jpg',
-    after: '/gallery_pruning_after.jpg',
+    before: `${import.meta.env.BASE_URL}gallery_pruning_before.jpg`,
+    after: `${import.meta.env.BASE_URL}gallery_pruning_after.jpg`,
     title: 'Winter Canopy Pruning',
     location: 'Syracuse, NY'
   },
   {
-    before: '/gallery_stump_before.jpg',
-    after: '/gallery_stump_after.jpg',
+    before: `${import.meta.env.BASE_URL}gallery_stump_before.jpg`,
+    after: `${import.meta.env.BASE_URL}gallery_stump_after.jpg`,
     title: 'Deep Stump Grinding',
     location: 'Rochester, NY'
   }

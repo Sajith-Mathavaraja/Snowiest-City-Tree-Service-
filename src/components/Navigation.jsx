@@ -134,7 +134,7 @@ const Navigation = () => {
               className="flex items-center gap-3 hover:scale-105 transition-transform py-1.5 shrink-0 z-10"
             >
               <img 
-                src="/logo.jpg" 
+                src={`${import.meta.env.BASE_URL}logo.jpg`} 
                 alt="Snowiest City Tree Service Logo" 
                 className="w-[2.2rem] h-[2.2rem] rounded-full object-cover border border-white/20 shadow-md" 
               />

@@ -80,7 +80,7 @@ const Hero = () => {
             className="w-full h-full rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative"
           >
             <img 
-              src="/hero_arborist.jpg" 
+              src={`${import.meta.env.BASE_URL}hero_arborist.jpg`} 
               alt="Professional arborist climbing a majestic pine tree in winter" 
               className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
             />

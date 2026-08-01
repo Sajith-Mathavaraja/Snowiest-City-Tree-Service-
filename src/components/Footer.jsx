@@ -9,10 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <img src="/logo.jpg" alt="Snowiest City Tree Service Logo" className="w-10 h-10 rounded-full object-cover border border-accent/50 shadow-md" />
-              <span className="text-xl font-heading font-bold">Snowiest City</span>
-            </div>
+            <Link to="/" className="flex items-center gap-3 hover:scale-105 transition-transform mb-6">
+              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Snowiest City Tree Service Logo" className="w-10 h-10 rounded-full object-cover border border-accent/50 shadow-md" />
+              <span className="font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-accent uppercase text-xs tracking-wider">
+                Snowiest City<br/>Tree Service
+              </span>
+            </Link>
             <p className="text-gray-300 mb-6 font-body">
               Premium tree care services built for every season. Fully licensed, insured, and certified arborists.
             </p>
