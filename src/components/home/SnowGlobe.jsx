@@ -210,9 +210,9 @@ const SnowGlobe = () => {
                   
                   <button 
                     onClick={handleBookNow}
-                    className="self-start text-accent font-extrabold text-sm flex items-center gap-2 hover:text-white transition-colors uppercase tracking-wider mt-auto"
+                    className="self-start text-white hover:text-accent font-extrabold text-sm flex items-center gap-2 transition-colors uppercase tracking-wider mt-auto"
                   >
-                    Book Service Now <span>→</span>
+                    Book Service Now <span className="text-accent">→</span>
                   </button>
                 </div>
 
