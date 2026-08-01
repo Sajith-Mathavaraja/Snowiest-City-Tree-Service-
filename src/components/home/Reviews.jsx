@@ -10,7 +10,8 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#161e27]" id="reviews">
+    <section className="py-24 relative overflow-hidden" id="reviews">
+      <div className="absolute inset-0 bg-[#1F2933]/60" />
       <div className="container mx-auto px-6 mb-12 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">What Our Clients Say</h2>
         <div className="flex justify-center items-center gap-2 text-accent mb-2">

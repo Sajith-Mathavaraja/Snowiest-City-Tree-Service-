@@ -7,10 +7,11 @@ const milestones = [
   { year: '2021', title: '1,000+ Projects Completed', desc: 'Recognized as the region\'s highest-rated storm response tree service.' },
   { year: '2026', title: 'Snowiest City Era', desc: 'Pioneering eco-friendly equipment, instant pricing tools, and 24/7 care.' },
 ];
-
 const AboutSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#141b22]" id="about">
+    <section className="py-24 relative overflow-hidden" id="about">
+      {/* Subtle dark glass overlay for this section */}
+      <div className="absolute inset-0 bg-[#1F2933]/60 backdrop-blur-[2px]" />
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center mb-16">
           <span className="text-white font-bold text-xs uppercase tracking-widest bg-accent/20 border border-accent/30 px-3.5 py-1.5 rounded-full">Our Story</span>
