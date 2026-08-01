@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Home, Trees, BookOpen, MessageSquare, Plus, Phone, Mail, AlertTriangle } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -31,6 +31,32 @@ const Navigation = () => {
     { icon: <Phone size={22} />, id: 'contact' },
   ];
 
+  const sectionOffsetsRef = useRef([]);
+
+  // Cache and calculate offsets on load and resize
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+
+    const updateOffsets = () => {
+      const offsets = allNavLinks.map(link => {
+        const el = document.getElementById(link.id);
+        return {
+          id: link.id,
+          offsetTop: el ? el.offsetTop : 0
+        };
+      });
+      sectionOffsetsRef.current = offsets;
+    };
+
+    const timer = setTimeout(updateOffsets, 600);
+    window.addEventListener('resize', updateOffsets);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', updateOffsets);
+    };
+  }, [location.pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       // Only highlight sections based on scroll if on home page
@@ -39,10 +65,10 @@ const Navigation = () => {
       setScrolled(window.scrollY > 20);
       
       const scrollPosition = window.scrollY + 220;
-      for (let i = allNavLinks.length - 1; i >= 0; i--) {
-        const element = document.getElementById(allNavLinks[i].id);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(allNavLinks[i].id);
+      const offsets = sectionOffsetsRef.current;
+      for (let i = offsets.length - 1; i >= 0; i--) {
+        if (offsets[i].offsetTop <= scrollPosition) {
+          setActiveSection(offsets[i].id);
           break;
         }
       }
