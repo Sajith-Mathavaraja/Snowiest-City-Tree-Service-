@@ -92,15 +92,15 @@ const Navigation = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-[100] hidden md:flex justify-center pt-4 px-6 transition-all duration-300"
+        className="fixed top-0 left-0 right-0 z-[100] hidden md:flex justify-center pt-2 px-6 transition-all duration-300"
       >
         <motion.div 
           animate={{
             width: scrolled ? '75%' : '82%',
             paddingLeft: scrolled ? '2.5rem' : '3.5rem',
             paddingRight: scrolled ? '2.5rem' : '3.5rem',
-            paddingTop: scrolled ? '0.55rem' : '0.85rem',
-            paddingBottom: scrolled ? '0.55rem' : '0.85rem',
+            paddingTop: scrolled ? '0.35rem' : '0.55rem',
+            paddingBottom: scrolled ? '0.35rem' : '0.55rem',
             backgroundColor: scrolled ? 'rgba(31, 41, 51, 0.45)' : 'rgba(255, 255, 255, 0.08)',
           }}
           transition={{ duration: 0.35, ease: 'easeInOut' }}
@@ -133,11 +133,11 @@ const Navigation = () => {
               onClick={() => scrollToSection('home')} 
               className="flex items-center gap-3 hover:scale-105 transition-transform py-1.5 shrink-0 z-10"
             >
-              <div className="w-[2.8rem] h-[2.8rem] rounded-full overflow-hidden border border-white/30 shadow-md shrink-0 flex items-center justify-center bg-white/5">
+              <div className="w-[2.8rem] h-[2.8rem] rounded-full overflow-hidden border border-white/30 shadow-md shrink-0 flex items-center justify-center bg-[#02493e]">
                 <img 
                   src={`${import.meta.env.BASE_URL}logo.jpg`} 
                   alt="Snowiest City Tree Service Logo" 
-                  className="w-full h-full object-cover scale-[1.35]" 
+                  className="w-full h-full object-cover scale-[1.55]" 
                 />
               </div>
               <span 
