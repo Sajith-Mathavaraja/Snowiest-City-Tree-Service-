@@ -55,7 +55,6 @@ const QuoteSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-white/15">
           <div className="text-white p-12 lg:w-2/5 flex flex-col justify-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
             <div className="relative z-10">
               <h3 className="text-3xl font-heading font-bold mb-6">Ready for a <span className="text-accent font-bold">healthier landscape?</span></h3>
               <p className="text-gray-200 mb-10 text-lg">Get a free, transparent estimate from our certified arborists today.</p>
