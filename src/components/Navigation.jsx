@@ -180,6 +180,32 @@ const Navigation = () => {
         </motion.div>
       </motion.header>
 
+      {/* Mobile Top Header Brand Bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#1F2933]/90 backdrop-blur-md border-b border-white/10 px-6 py-3 flex items-center justify-between shadow-md">
+        <button 
+          onClick={() => scrollToSection('home')} 
+          className="flex items-center gap-2"
+        >
+          <div className="w-[2.2rem] h-[2.2rem] rounded-full overflow-hidden border border-white/20 shrink-0 flex items-center justify-center bg-[#02493e]">
+            <img 
+              src={`${import.meta.env.BASE_URL}logo.jpg`} 
+              alt="Logo" 
+              className="w-full h-full object-cover scale-[1.55]" 
+            />
+          </div>
+          <span className="font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-[#3b9ae1] uppercase text-xs tracking-wider">
+            Snowiest City
+          </span>
+        </button>
+        <a 
+          href="tel:3153757877"
+          className="bg-accent text-secondary px-3 py-1.5 rounded-full shadow-md text-xs font-bold flex items-center gap-1.5"
+        >
+          <Phone size={12} />
+          <span>Call Now</span>
+        </a>
+      </div>
+
       {/* Mobile Bottom Dock */}
       <div className="md:hidden fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center">
         {/* Expanded Quick Actions Popup */}

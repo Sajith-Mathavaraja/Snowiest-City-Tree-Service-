@@ -51,8 +51,21 @@ const SnowGlobe = () => {
   const activeIndex = services.findIndex(s => s.id === activeService.id);
   const parentRotation = -activeIndex * 72; // 360 / 5 = 72 degrees per segment
 
-  // Radius for outer segments placement in pixels
-  const radius = 135;
+  const [radius, setRadius] = useState(135);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setRadius(105);
+      } else {
+        setRadius(135);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const angleStep = (2 * Math.PI) / services.length;
 
   // Auto-play slideshow timer that rotates/cycles the services every 5 seconds
@@ -92,12 +105,12 @@ const SnowGlobe = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 xl:gap-24">
           
           {/* Left Side: Circular Service Wheel */}
-          <div className="relative w-[340px] h-[340px] shrink-0 flex items-center justify-center select-none">
+          <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] shrink-0 flex items-center justify-center select-none">
             
             {/* Center Circle: Shows Current Active Service Logo and Name - Clickable redirect */}
             <button 
               onClick={handleBookNow}
-              className="w-[170px] h-[170px] rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-xl border border-white/20 flex flex-col items-center justify-center text-center p-5 shadow-[0_0_50px_rgba(255,255,255,0.05)] z-20 transition-all duration-300 group/center cursor-pointer"
+              className="w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-xl border border-white/20 flex flex-col items-center justify-center text-center p-4 sm:p-5 shadow-[0_0_50px_rgba(255,255,255,0.05)] z-20 transition-all duration-300 group/center cursor-pointer"
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -108,18 +121,21 @@ const SnowGlobe = () => {
                   transition={{ duration: 0.3 }}
                   className="flex flex-col items-center justify-center"
                 >
-                  <div className="w-14 h-14 rounded-full bg-accent/20 text-accent flex items-center justify-center mb-2.5 shadow-inner group-hover/center:scale-105 transition-transform duration-300">
-                    <activeService.icon size={26} className="animate-pulse" />
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-accent/20 text-accent flex items-center justify-center mb-2 sm:mb-2.5 shadow-inner group-hover/center:scale-105 transition-transform duration-300">
+                    <activeService.icon className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
                   </div>
-                  <h4 className="font-heading font-extrabold text-xs md:text-sm text-white uppercase tracking-wider leading-tight max-w-[130px]">
+                  <h4 className="font-heading font-extrabold text-[0.7rem] sm:text-xs md:text-sm text-white uppercase tracking-wider leading-tight max-w-[100px] sm:max-w-[130px]">
                     {activeService.title}
                   </h4>
                 </motion.div>
               </AnimatePresence>
             </button>
 
-            {/* Circular Orbit Ring Decorator - Perfectly matched to 135px radius */}
-            <div className="absolute w-[270px] h-[270px] rounded-full border border-white/10 pointer-events-none z-0" />
+            {/* Circular Orbit Ring Decorator - Perfectly matched to current dynamic radius */}
+            <div 
+              className="absolute rounded-full border border-white/10 pointer-events-none z-0" 
+              style={{ width: `${radius * 2}px`, height: `${radius * 2}px` }}
+            />
 
             {/* Dynamic Spinning Parent Container */}
             <motion.div
@@ -135,6 +151,7 @@ const SnowGlobe = () => {
                 const angle = index * angleStep - Math.PI / 2;
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
+                const offset = radius === 105 ? 28 : 32;
 
                 return (
                   <motion.button
@@ -145,18 +162,18 @@ const SnowGlobe = () => {
                       top: '50%',
                     }}
                     animate={{ 
-                      x: x - 32, // Center the w-16 button (64px / 2 = 32)
-                      y: y - 32, // Center the h-16 button (64px / 2 = 32)
+                      x: x - offset, // Center the button based on dynamic offset
+                      y: y - offset,
                       rotate: -parentRotation 
                     }}
                     transition={{ type: 'spring', stiffness: 90, damping: 16 }}
-                    className={`absolute w-16 h-16 rounded-full border flex flex-col items-center justify-center z-10 shadow-lg group ${
+                    className={`absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full border flex flex-col items-center justify-center z-10 shadow-lg group ${
                       isActive 
                         ? 'bg-accent border-accent text-white scale-110 shadow-accent/25' 
                         : 'bg-white/10 hover:bg-white/20 border-white/20 text-gray-300 hover:text-white'
                     }`}
                   >
-                    <service.icon size={22} className="transition-transform group-hover:scale-110" />
+                    <service.icon className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110" />
                     <span className="sr-only">{service.title}</span>
                   </motion.button>
                 );
