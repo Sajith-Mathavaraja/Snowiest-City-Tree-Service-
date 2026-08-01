@@ -113,9 +113,9 @@ const QuoteSection = () => {
                   title="Snowiest City Tree Service"
                 />
               ) : (
-                <div className="text-center text-gray-400">
+                <div className="text-center text-gray-200">
                   <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-accent mx-auto mb-4"></div>
-                  <p className="text-sm">Loading Estimate Form...</p>
+                  <p className="text-sm font-semibold">Loading Estimate Form...</p>
                 </div>
               )}
             </div>

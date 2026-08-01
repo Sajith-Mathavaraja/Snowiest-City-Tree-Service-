@@ -97,7 +97,7 @@ const SnowGlobe = () => {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-accent font-bold text-xs uppercase tracking-widest bg-accent/20 border border-accent/30 px-3.5 py-1.5 rounded-full">Interactive Solutions</span>
+          <span className="text-white font-bold text-xs uppercase tracking-widest bg-accent/20 border border-accent/30 px-3.5 py-1.5 rounded-full">Interactive Solutions</span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mt-4 mb-4">Our Services</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">Click any outer service node to view our premium tree solutions and photos in real-time.</p>
         </div>
@@ -196,7 +196,7 @@ const SnowGlobe = () => {
                 {/* Details Section */}
                 <div className="p-8 md:w-3/5 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs font-bold text-accent uppercase tracking-widest bg-accent/20 px-3 py-1 rounded-full">
+                    <span className="text-xs font-bold text-white uppercase tracking-widest bg-accent/25 px-3 py-1 rounded-full">
                       Arborist Specialization
                     </span>
                     <h3 className="text-3xl font-heading font-extrabold text-white mt-4 mb-4">

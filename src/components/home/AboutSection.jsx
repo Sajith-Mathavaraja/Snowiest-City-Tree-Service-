@@ -15,7 +15,7 @@ const AboutSection = () => {
       <div className="absolute inset-0 bg-[#1F2933]/60 backdrop-blur-[2px]" />
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <span className="text-accent font-bold text-xs uppercase tracking-widest bg-accent/20 border border-accent/30 px-3.5 py-1.5 rounded-full">Our Story</span>
+          <span className="text-white font-bold text-xs uppercase tracking-widest bg-accent/20 border border-accent/30 px-3.5 py-1.5 rounded-full">Our Story</span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mt-4 mb-4">About Snowiest City Tree Service</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">Built on a foundation of safety, precision, and dedication to protecting local properties in severe winter weather.</p>
         </div>
