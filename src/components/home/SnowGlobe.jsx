@@ -91,8 +91,7 @@ const SnowGlobe = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#1F2933]/50" />
+    <section className="py-24 relative overflow-hidden bg-[#151d25]" id="services">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Header */}
