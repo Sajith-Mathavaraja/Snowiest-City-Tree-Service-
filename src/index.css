@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  .glass-dark {
+    @apply bg-primary/80 backdrop-blur-md border border-white/10 shadow-xl text-white;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent;
+  }
+}
+
+/* Realistic 3-Layer Snow Animations with sway and opacity transitions */
+@keyframes snow-slow {
+  0% { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(105vh) translateX(25px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes snow-medium {
+  0% { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(105vh) translateX(-35px) rotate(-360deg); opacity: 0; }
+}
+
+@keyframes snow-fast {
+  0% { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(105vh) translateX(45px) rotate(180deg); opacity: 0; }
+}
+
+.animate-snow-slow {
+  animation: snow-slow linear infinite;
+}
+.animate-snow-medium {
+  animation: snow-medium linear infinite;
+}
+.animate-snow-fast {
+  animation: snow-fast linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 7)); } /* Approx calc for reviews */
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1F2933; 
+}
+::-webkit-scrollbar-thumb {
+  background: #4F6F52; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1F2933; 
+}
