@@ -15,11 +15,11 @@
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     </noscript>
-    <!-- Preload LCP Hero Image for PageSpeed Optimization -->
-    <link rel="preload" href="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg" as="image" fetchpriority="high" />
-    <!-- Preload Global Background Canopy Responsively to Accelerate Mobile Rendering -->
-    <link rel="preload" href="https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=50&fm=webp" as="image" media="(max-width: 767px)" crossorigin />
-    <link rel="preload" href="https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60&fm=webp" as="image" media="(min-width: 768px)" crossorigin />
+    <!-- Preload LCP Hero Image for PageSpeed Optimization (Only on Desktop since it is hidden on Mobile) -->
+    <link rel="preload" href="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg" as="image" media="(min-width: 1024px)" fetchpriority="high" />
+    <!-- Preload Global Background Canopy Responsively (Without crossorigin to match CSS no-cors requests) -->
+    <link rel="preload" href="https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=35&fm=webp" as="image" media="(max-width: 767px)" />
+    <link rel="preload" href="https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60&fm=webp" as="image" media="(min-width: 768px)" />
   </head>
   <body style="background-color: #1F2933;">
     <div id="root"></div>
