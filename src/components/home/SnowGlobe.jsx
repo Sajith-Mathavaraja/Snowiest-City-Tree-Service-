@@ -9,7 +9,7 @@ const services = [
     icon: Axe, 
     color: 'bg-primary', 
     desc: 'Safely dismantle hazardous, structurally compromised, or dead trees near your home. Our certified arborists utilize state-of-the-art rigging systems, compact cranes, and directional felling techniques to guarantee absolute protection for your property under heavy snow and winter wind loads.',
-    image: 'https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_50,w_450,c_scale/v1785604796/service_removal_cngbvb.jpg'
+    image: 'https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_35,w_350,c_scale/v1785604796/service_removal_cngbvb.jpg'
   },
   { 
     id: 'emergency', 

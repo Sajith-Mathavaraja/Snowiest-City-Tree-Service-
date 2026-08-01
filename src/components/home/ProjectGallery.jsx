@@ -14,7 +14,7 @@ const projects = [
     location: 'Syracuse, NY'
   },
   {
-    before: 'https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_50,w_450,c_scale/v1785604942/gallery_stump_before_ux2fd1.jpg',
+    before: 'https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_35,w_350,c_scale/v1785604942/gallery_stump_before_ux2fd1.jpg',
     after: 'https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@v1.0.0/public/gallery_stump_after.webp',
     title: 'Deep Stump Grinding',
     location: 'Rochester, NY'
