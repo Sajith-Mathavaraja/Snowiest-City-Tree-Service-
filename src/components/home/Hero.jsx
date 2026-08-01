@@ -71,7 +71,7 @@ const Hero = () => {
             className="w-full h-full rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative"
           >
             <img 
-              src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_auto,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg" 
+              src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg" 
               alt="Professional arborist climbing a majestic pine tree in winter" 
               className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
               fetchPriority="high"
