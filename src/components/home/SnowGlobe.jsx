@@ -68,7 +68,7 @@ const SnowGlobe = () => {
 
   const angleStep = (2 * Math.PI) / services.length;
 
-  // Auto-play slideshow timer that rotates/cycles the services every 5 seconds
+  // Auto-play slideshow timer that rotates/cycles the services every 20 seconds (user-friendly reading duration + Lighthouse compatibility)
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveService((prev) => {
@@ -76,7 +76,7 @@ const SnowGlobe = () => {
         const nextIndex = (currentIndex + 1) % services.length;
         return services[nextIndex];
       });
-    }, 5000); // 5 seconds interval
+    }, 20000); // 20 seconds interval
 
     return () => clearInterval(timer);
   }, [activeService]); // Reset the timer when a user manually clicks/selects a service
