@@ -138,17 +138,8 @@ const Navigation = () => {
         animate={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-[100] hidden md:flex justify-center pt-2 px-6 transition-all duration-300"
       >
-        <motion.div 
-          animate={{
-            width: scrolled ? '75%' : '82%',
-            paddingLeft: scrolled ? '2.5rem' : '3.5rem',
-            paddingRight: scrolled ? '2.5rem' : '3.5rem',
-            paddingTop: scrolled ? '0.35rem' : '0.55rem',
-            paddingBottom: scrolled ? '0.35rem' : '0.55rem',
-            backgroundColor: scrolled ? 'rgba(31, 41, 51, 0.45)' : 'rgba(255, 255, 255, 0.08)',
-          }}
-          transition={{ duration: 0.35, ease: 'easeInOut' }}
-          className="backdrop-blur-md border border-white/15 rounded-full grid grid-cols-3 items-center shadow-xl max-w-6xl mx-auto overflow-hidden text-white"
+        <div 
+          className={`backdrop-blur-md border border-white/15 rounded-full grid grid-cols-3 items-center shadow-xl max-w-6xl mx-auto overflow-hidden text-white transition-all duration-350 ease-in-out ${scrolled ? 'w-[75%] px-10 py-1.5 bg-[#1F2933]/45' : 'w-[82%] px-14 py-2.5 bg-white/8'}`}
         >
           
           {/* COLUMN 1: Left Links */}
@@ -165,7 +156,7 @@ const Navigation = () => {
               >
                 {link.name}
                 {activeSection === link.id && (
-                  <motion.div layoutId="active-nav" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
+                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full origin-left" transition={{ duration: 0.2 }} />
                 )}
               </button>
             ))}
@@ -206,13 +197,13 @@ const Navigation = () => {
               >
                 {link.name}
                 {activeSection === link.id && (
-                  <motion.div layoutId="active-nav" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
+                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full origin-left" transition={{ duration: 0.2 }} />
                 )}
               </button>
             ))}
           </motion.nav>
 
-        </motion.div>
+        </div>
       </motion.header>
 
       {/* Mobile Top Header Brand Bar */}
