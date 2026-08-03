@@ -28,16 +28,16 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-20 container mx-auto px-6 max-w-7xl relative">
-        <div className="absolute inset-0 bg-[#1F2933]/50" />
+        <div className="absolute inset-0 bg-[#16222F]" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {servicesList.map((service, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/15 flex flex-col justify-between hover:-translate-y-1.5 transition-all">
+            <div key={idx} className="bg-[#25323E] p-8 rounded-3xl shadow-xl border border-white/15 flex flex-col justify-between hover:-translate-y-1.5 transition-all">
               <div>
                 <div className="w-14 h-14 bg-accent/20 text-accent rounded-2xl flex items-center justify-center mb-6">
                   <service.icon size={28} />
                 </div>
                 <h3 className="text-2xl font-heading font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{service.desc}</p>
+                <p className="text-gray-200 leading-relaxed">{service.desc}</p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/15">
                 <Link to="/contact" className="text-accent font-bold text-sm flex items-center gap-2 hover:text-white transition-colors">
@@ -51,7 +51,7 @@ const Services = () => {
 
       {/* Interactive Estimator Tools */}
       <section className="py-20 relative">
-        <div className="absolute inset-0 bg-[#1F2933]/60" />
+        <div className="absolute inset-0 bg-[#16222F]" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-heading font-bold text-white mb-4">Tree Care Diagnostic & Cost Estimator</h2>
