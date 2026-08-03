@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: mode === 'production' ? 'https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@v1.0.0/dist/' : '/',
+  base: mode === 'production' ? '/Snowiest-City-Tree-Service-/' : '/',
   build: {
     rollupOptions: {
       output: {
