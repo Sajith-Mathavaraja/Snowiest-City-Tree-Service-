@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Trees, BookOpen, MessageSquare, Plus, Phone, Mail, AlertTriangle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Home, Trees, BookOpen, Mail, Plus, Phone, AlertTriangle } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
@@ -21,8 +20,6 @@ const Navigation = () => {
     { name: 'Reviews', id: 'reviews' },
     { name: 'Contact', id: 'contact' },
   ];
-
-  const allNavLinks = [...leftNavLinks, ...rightNavLinks];
 
   const mobileDockIcons = [
     { icon: <Home size={22} />, id: 'home' },
@@ -133,20 +130,16 @@ const Navigation = () => {
   return (
     <>
       {/* Desktop Navigation Header - Symmetrical Layout with Frosted Transparent Glass Theme */}
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-[100] hidden md:flex justify-center pt-2 px-6 transition-all duration-300"
+      <header
+        className="fixed top-0 left-0 right-0 z-[100] hidden md:flex justify-center pt-2 px-6 animate-header-slide-down"
       >
         <div 
           className={`backdrop-blur-md border border-white/15 rounded-full grid grid-cols-3 items-center shadow-xl max-w-6xl mx-auto overflow-hidden text-white transition-all duration-350 ease-in-out ${scrolled ? 'w-[75%] px-10 py-1.5 bg-[#1F2933]/45' : 'w-[82%] px-14 py-2.5 bg-white/8'}`}
         >
           
           {/* COLUMN 1: Left Links */}
-          <motion.nav 
-            animate={{ x: scrolled ? 24 : 0 }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
-            className="flex items-center justify-start gap-6 lg:gap-8"
+          <nav 
+            className={`flex items-center justify-start gap-6 lg:gap-8 transition-transform duration-350 ease-in-out ${scrolled ? 'translate-x-6' : 'translate-x-0'}`}
           >
             {leftNavLinks.map((link) => (
               <button
@@ -155,12 +148,12 @@ const Navigation = () => {
                 className={`font-semibold transition-colors duration-300 relative px-1 ${scrolled ? 'text-xs' : 'text-sm'} ${activeSection === link.id ? 'text-accent font-bold' : 'text-gray-200 hover:text-accent'}`}
               >
                 {link.name}
-                {activeSection === link.id && (
-                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full origin-left" transition={{ duration: 0.2 }} />
-                )}
+                <div 
+                  className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full origin-left transition-transform duration-200 ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0'}`} 
+                />
               </button>
             ))}
-          </motion.nav>
+          </nav>
 
           {/* COLUMN 2: CENTER Logo - Snowiest City Tree Service (Perfectly static, does not move or scale on scroll) */}
           <div className="flex items-center justify-center">
@@ -184,10 +177,8 @@ const Navigation = () => {
           </div>
 
           {/* COLUMN 3: Right Links */}
-          <motion.nav 
-            animate={{ x: scrolled ? -24 : 0 }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
-            className="flex items-center justify-end gap-6 lg:gap-8"
+          <nav 
+            className={`flex items-center justify-end gap-6 lg:gap-8 transition-transform duration-350 ease-in-out ${scrolled ? '-translate-x-6' : '-translate-x-0'}`}
           >
             {rightNavLinks.map((link) => (
               <button
@@ -196,15 +187,15 @@ const Navigation = () => {
                 className={`font-semibold transition-colors duration-300 relative px-1 ${scrolled ? 'text-xs' : 'text-sm'} ${activeSection === link.id ? 'text-accent font-bold' : 'text-gray-200 hover:text-accent'}`}
               >
                 {link.name}
-                {activeSection === link.id && (
-                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full origin-left" transition={{ duration: 0.2 }} />
-                )}
+                <div 
+                  className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full origin-left transition-transform duration-200 ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0'}`} 
+                />
               </button>
             ))}
-          </motion.nav>
+          </nav>
 
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Top Header Brand Bar */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#1F2933]/90 backdrop-blur-md border-b border-white/10 px-6 py-3 flex items-center justify-between shadow-md">
@@ -235,34 +226,31 @@ const Navigation = () => {
       {/* Mobile Bottom Dock */}
       <div className="md:hidden fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center">
         {/* Expanded Quick Actions Popup */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              className="glass p-4 rounded-3xl mb-4 w-full max-w-xs shadow-2xl border border-white/20 space-y-2 bg-[#1F2933]/95 backdrop-blur-xl text-white"
-            >
-              <div className="text-xs font-heading font-bold text-gray-400 uppercase tracking-wider text-center mb-2">Quick Actions</div>
-              <button onClick={() => scrollToSection('contact')} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-primary text-white font-medium hover:bg-secondary transition-colors text-sm">
-                <BookOpen size={18} className="text-accent" />
-                <span>Request Quote</span>
-              </button>
-              <a href="tel:3153757877" onClick={() => setMenuOpen(false)} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-red-600 text-white font-medium hover:bg-red-700 transition-colors text-sm">
-                <AlertTriangle size={18} />
-                <span>Emergency 24/7</span>
-              </a>
-              <a href="tel:3153757877" onClick={() => setMenuOpen(false)} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 transition-colors text-sm border border-white/10">
-                <Phone size={18} className="text-accent" />
-                <span>Call Us Direct</span>
-              </a>
-              <a href="mailto:syracuse@syracusetreeservices.com" onClick={() => setMenuOpen(false)} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 transition-colors text-sm border border-white/10">
-                <Mail size={18} className="text-accent" />
-                <span>Email Support</span>
-              </a>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          className={`glass p-4 rounded-3xl mb-4 w-full max-w-xs shadow-2xl border border-white/20 space-y-2 bg-[#1F2933]/95 backdrop-blur-xl text-white transition-all duration-300 transform origin-bottom ${
+            menuOpen 
+              ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
+              : 'opacity-0 translate-y-4 scale-95 pointer-events-none absolute'
+          }`}
+        >
+          <div className="text-xs font-heading font-bold text-gray-400 uppercase tracking-wider text-center mb-2">Quick Actions</div>
+          <button onClick={() => scrollToSection('contact')} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-primary text-white font-medium hover:bg-secondary transition-colors text-sm">
+            <BookOpen size={18} className="text-accent" />
+            <span>Request Quote</span>
+          </button>
+          <a href="tel:3153757877" onClick={() => setMenuOpen(false)} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-red-600 text-white font-medium hover:bg-red-700 transition-colors text-sm">
+            <AlertTriangle size={18} />
+            <span>Emergency 24/7</span>
+          </a>
+          <a href="tel:3153757877" onClick={() => setMenuOpen(false)} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 transition-colors text-sm border border-white/10">
+            <Phone size={18} className="text-accent" />
+            <span>Call Us Direct</span>
+          </a>
+          <a href="mailto:syracuse@syracusetreeservices.com" onClick={() => setMenuOpen(false)} className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 transition-colors text-sm border border-white/10">
+            <Mail size={18} className="text-accent" />
+            <span>Email Support</span>
+          </a>
+        </div>
 
         <div className="glass px-6 py-3 rounded-full flex items-center justify-between w-full max-w-sm relative bg-[#1F2933]/95 border-white/10 text-white">
           {mobileDockIcons.map((item, index) => (

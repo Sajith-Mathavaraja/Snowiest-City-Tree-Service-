@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ShieldCheck, Star, AlertTriangle, ArrowRight, Award } from 'lucide-react';
+import { ShieldCheck, Star, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -19,31 +18,23 @@ const Hero = () => {
         {/* Left Content */}
         <div className="flex-1 text-center lg:text-left max-w-2xl">
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white mb-6 leading-[1.15]"
+          <h1 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white mb-6 leading-[1.15] animate-fade-in-up"
           >
             Professional Tree Care <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-sage">
               Built for Every Season
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-200 mb-10 font-body leading-relaxed max-w-xl mx-auto lg:mx-0"
+          <p 
+            className="text-lg md:text-xl text-gray-200 mb-10 font-body leading-relaxed max-w-xl mx-auto lg:mx-0 animate-fade-in-up animation-delay-200 opacity-0"
           >
             Experience the premium standard in tree services. From emergency removals to seasonal pruning, our ISA-certified arborists deliver pristine property results.
-          </motion.p>
+          </p>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          <div 
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up animation-delay-400 opacity-0"
           >
             <button 
               onClick={scrollToContact}
@@ -58,17 +49,14 @@ const Hero = () => {
             >
               Explore Services
             </a>
-          </motion.div>
+          </div>
         </div>
 
         {/* Right Content - Premium Photo with a suitable Lightly Dark Overlay */}
         <div className="flex-1 w-full max-w-lg relative h-[480px] hidden lg:block select-none">
           {/* Main Arborist Image with atmospheric dark filter overlay */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="w-full h-full rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative"
+          <div
+            className="w-full h-full rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative animate-scale-in"
           >
             <picture>
               <source 
@@ -96,7 +84,7 @@ const Hero = () => {
               <Star className="text-accent fill-accent w-4 h-4 animate-pulse" />
               <span>5-Star Rated</span>
             </div>
-          </motion.div>
+          </div>
         </div>
 
       </div>
