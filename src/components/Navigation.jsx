@@ -176,7 +176,7 @@ const Navigation = () => {
             >
               <div className="w-[2.8rem] h-[2.8rem] rounded-full overflow-hidden border border-white/30 shadow-md shrink-0 flex items-center justify-center bg-[#02493e]">
                 <img 
-                  src="https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@v1.0.0/public/logo.webp" 
+                  src={`${import.meta.env.BASE_URL}logo.webp`} 
                   alt="Snowiest City Tree Service Logo" 
                   className="w-full h-full object-cover scale-[1.55]" 
                 />
@@ -218,7 +218,7 @@ const Navigation = () => {
         >
           <div className="w-[2.2rem] h-[2.2rem] rounded-full overflow-hidden border border-white/20 shrink-0 flex items-center justify-center bg-[#02493e]">
             <img 
-              src="https://cdn.jsdelivr.net/gh/Sajith-Mathavaraja/Snowiest-City-Tree-Service-@v1.0.0/public/logo.webp" 
+              src={`${import.meta.env.BASE_URL}logo.webp`} 
               alt="Logo" 
               className="w-full h-full object-cover scale-[1.55]" 
             />
