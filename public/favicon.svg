@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
-  <!-- Background circle -->
-  <circle cx="24" cy="24" r="24" fill="#1F2933"/>
-  <!-- Tree trunk -->
-  <rect x="21" y="36" width="6" height="7" rx="1" fill="#5CB0ED"/>
-  <!-- Tree layers (bottom to top, getting smaller) -->
-  <polygon points="24,8 10,30 38,30" fill="#4F6F52"/>
-  <polygon points="24,12 11,32 37,32" fill="#5a7f5e"/>
-  <!-- Snowflake/star on top -->
-  <circle cx="24" cy="10" r="3" fill="#5CB0ED"/>
-  <!-- Snow dots on tree -->
-  <circle cx="16" cy="27" r="1.5" fill="white" opacity="0.8"/>
-  <circle cx="22" cy="23" r="1.5" fill="white" opacity="0.8"/>
-  <circle cx="30" cy="26" r="1.5" fill="white" opacity="0.8"/>
-  <circle cx="26" cy="19" r="1.2" fill="white" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="6" fill="#1F2933"/>
+  <!-- Tree body - simple readable triangle layers -->
+  <polygon points="16,3 6,16 26,16" fill="#4F6F52"/>
+  <polygon points="16,9 5,20 27,20" fill="#5a8060"/>
+  <polygon points="16,14 4,25 28,25" fill="#4F6F52"/>
+  <!-- Trunk -->
+  <rect x="14" y="25" width="4" height="4" rx="1" fill="#5CB0ED"/>
+  <!-- Blue star on top -->
+  <circle cx="16" cy="3.5" r="2" fill="#5CB0ED"/>
+  <!-- Snow highlights -->
+  <circle cx="10" cy="19" r="1.2" fill="white" opacity="0.75"/>
+  <circle cx="22" cy="21" r="1.2" fill="white" opacity="0.75"/>
+  <circle cx="14" cy="14" r="1" fill="white" opacity="0.7"/>
 </svg>
