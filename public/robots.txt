@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iridescent-fairy-cbb7e6.netlify.app/sitemap.xml
