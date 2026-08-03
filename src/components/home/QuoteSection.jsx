@@ -56,28 +56,28 @@ const QuoteSection = () => {
         <div className="bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-white/15">
           <div className="text-white p-12 lg:w-2/5 flex flex-col justify-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
             <div className="relative z-10">
-              <h3 className="text-3xl font-heading font-bold mb-6">Ready for a <span className="text-accent font-bold">healthier landscape?</span></h3>
+               <h2 className="text-3xl font-heading font-bold mb-6">Ready for a <span className="text-accent font-bold">healthier landscape?</span></h2>
               <p className="text-gray-200 mb-10 text-lg">Get a free, transparent estimate from our certified arborists today.</p>
               
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full bg-[#3b9ae1]/20 flex items-center justify-center shrink-0 text-[#3b9ae1] font-bold mt-1">1</div>
                   <div>
-                    <h4 className="font-heading font-bold text-lg">Fast Response</h4>
+                    <h3 className="font-heading font-bold text-lg">Fast Response</h3>
                     <p className="text-sm text-gray-300">We get back to you within 24 hours.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full bg-[#3b9ae1]/20 flex items-center justify-center shrink-0 text-[#3b9ae1] font-bold mt-1">2</div>
                   <div>
-                    <h4 className="font-heading font-bold text-lg">On-site Assessment</h4>
+                    <h3 className="font-heading font-bold text-lg">On-site Assessment</h3>
                     <p className="text-sm text-gray-300">Free evaluation by a certified pro.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full bg-[#3b9ae1]/20 flex items-center justify-center shrink-0 text-[#3b9ae1] font-bold mt-1">3</div>
                   <div>
-                    <h4 className="font-heading font-bold text-lg">No Hidden Fees</h4>
+                    <h3 className="font-heading font-bold text-lg">No Hidden Fees</h3>
                     <p className="text-sm text-gray-300">Clear pricing upfront.</p>
                   </div>
                 </li>

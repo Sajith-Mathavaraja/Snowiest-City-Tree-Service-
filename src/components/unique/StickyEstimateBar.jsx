@@ -38,7 +38,7 @@ const StickyEstimateBar = () => {
                 <img src={`${import.meta.env.BASE_URL}logo.webp`} alt="Logo" className="w-full h-full object-cover scale-[1.55]" />
               </div>
               <div>
-                <h4 className="font-heading font-bold text-white text-base">Need Professional Tree Care?</h4>
+                <h3 className="font-heading font-bold text-white text-base">Need Professional Tree Care?</h3>
                 <p className="text-xs text-gray-300">Fast on-site estimates by ISA certified arborists.</p>
               </div>
             </div>

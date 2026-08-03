@@ -49,7 +49,7 @@ const AboutSection = () => {
 
           {/* Right Milestone Timeline */}
           <div className="glass-panel-custom p-8 rounded-3xl border border-white/15 shadow-lg">
-            <h4 className="text-xl font-heading font-bold text-white mb-6 border-b border-white/20 pb-4">Company Milestones</h4>
+            <h3 className="text-xl font-heading font-bold text-white mb-6 border-b border-white/20 pb-4">Company Milestones</h3>
             <div className="space-y-6">
               {milestones.map((m, idx) => (
                 <div key={idx} className="flex gap-4">

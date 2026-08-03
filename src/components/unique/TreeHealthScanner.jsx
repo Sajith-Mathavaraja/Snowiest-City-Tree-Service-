@@ -53,7 +53,7 @@ const TreeHealthScanner = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              <h4 className="text-xl text-center font-medium text-gray-800 mb-8">{currentQuestion.text}</h4>
+              <h3 className="text-xl text-center font-medium text-gray-800 mb-8">{currentQuestion.text}</h3>
               <div className="flex justify-center gap-6">
                 <button 
                   onClick={() => handleAnswer('yes')}
@@ -79,21 +79,21 @@ const TreeHealthScanner = () => {
               {result === 'safe' && (
                 <>
                   <CheckCircle size={64} className="text-success mx-auto mb-4" />
-                  <h4 className="text-2xl font-bold text-success mb-2">Tree Appears Healthy</h4>
+                  <h3 className="text-2xl font-bold text-success mb-2">Tree Appears Healthy</h3>
                   <p className="text-gray-600 mb-6">Based on your answers, your tree doesn't show immediate signs of structural failure.</p>
                 </>
               )}
               {result === 'warning' && (
                 <>
                   <AlertTriangle size={64} className="text-warning mx-auto mb-4" />
-                  <h4 className="text-2xl font-bold text-warning mb-2">Inspection Recommended</h4>
+                  <h3 className="text-2xl font-bold text-warning mb-2">Inspection Recommended</h3>
                   <p className="text-gray-600 mb-6">There are signs of potential disease or decay. An arborist should evaluate it.</p>
                 </>
               )}
               {result === 'danger' && (
                 <>
                   <AlertTriangle size={64} className="text-red-500 mx-auto mb-4" />
-                  <h4 className="text-2xl font-bold text-red-500 mb-2">High Risk - Act Now</h4>
+                  <h3 className="text-2xl font-bold text-red-500 mb-2">High Risk - Act Now</h3>
                   <p className="text-gray-600 mb-6">Your tree shows signs of imminent failure. Keep away and call for emergency assessment.</p>
                   <button className="bg-red-600 text-white font-bold px-8 py-3 rounded-full mb-4 shadow-lg animate-pulse">Call Emergency Line</button>
                 </>
