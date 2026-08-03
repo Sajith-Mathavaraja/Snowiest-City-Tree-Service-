@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const distDir = 'C:\\Users\\Sajith\\Desktop\\Snowiest City Tree Service\\dist';
+const distDir = path.join(process.cwd(), 'dist');
 const htmlPath = path.join(distDir, 'index.html');
 
 function inlineCss() {
