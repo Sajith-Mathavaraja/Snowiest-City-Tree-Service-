@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Home, Trees, BookOpen, Mail, Plus, Phone, AlertTriangle } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -8,6 +8,9 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
   const navigate = useNavigate();
+
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef(null);
 
   const leftNavLinks = [
     { name: 'Home', id: 'home' },
@@ -28,56 +31,41 @@ const Navigation = () => {
     { icon: <Phone size={22} />, id: 'contact' },
   ];
 
-  // Passive scroll listener for header background scroll toggle
+  // Robust, high-performance scroll listener for both header style and focal-point active section detection
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  // Use high-performance IntersectionObserver to track active scrolling section
-  useEffect(() => {
-    if (location.pathname !== '/') return;
+      // Only run scroll-spy on the homepage
+      if (location.pathname !== '/' || isScrollingRef.current) return;
 
-    const sectionIds = ['home', 'about', 'services', 'why-us', 'gallery', 'reviews', 'contact'];
-    const intersectingSections = new Map();
+      const sectionIds = ['home', 'about', 'services', 'why-us', 'reviews', 'contact'];
+      let currentSection = 'home';
+      
+      // The visual focal point of the screen is at 30% of the viewport height
+      const focalPoint = window.innerHeight * 0.3;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          intersectingSections.set(entry.target.id, entry.isIntersecting);
-        });
-
-        // Set the active section as the first intersecting section in document order
-        let foundActive = false;
-        for (const id of sectionIds) {
-          if (intersectingSections.get(id)) {
-            setActiveSection(id);
-            foundActive = true;
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // If the element crosses the focal point line of the screen
+          if (rect.top <= focalPoint && rect.bottom >= focalPoint) {
+            currentSection = id;
             break;
           }
         }
-        
-        // Default back to home if scrolling near top and nothing matches
-        if (!foundActive && window.scrollY < 100) {
-          setActiveSection('home');
-        }
-      },
-      {
-        rootMargin: '-20% 0px -40% 0px',
-        threshold: 0
       }
-    );
+      setActiveSection(currentSection);
+    };
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on load to establish current state
+    handleScroll();
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     };
   }, [location.pathname]);
 
@@ -86,7 +74,6 @@ const Navigation = () => {
     if (location.pathname !== '/') {
       setActiveSection('');
     } else {
-      // Small timeout to let IntersectionObserver initialize and override if needed
       setTimeout(() => {
         if (window.scrollY < 100) setActiveSection('home');
       }, 50);
@@ -120,9 +107,17 @@ const Navigation = () => {
       setActiveSection(id);
       const element = document.getElementById(id);
       if (element) {
+        // Lock scroll spy updates during smooth scroll transition to prevent flickering
+        isScrollingRef.current = true;
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+
         const yOffset = -90;
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
+
+        scrollTimeoutRef.current = setTimeout(() => {
+          isScrollingRef.current = false;
+        }, 800); // 800ms lock duration covers standard smooth scrolls
       }
     }
   };
