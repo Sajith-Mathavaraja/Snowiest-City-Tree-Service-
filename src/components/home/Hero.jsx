@@ -54,7 +54,7 @@ const Hero = () => {
         {/* Mobile Hero Image - visible on mobile as LCP candidate (hidden on lg+) */}
         <div className="w-full lg:hidden relative h-[280px] mt-8 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
           <img
-            src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_800,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
+            src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_75,w_640,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
             alt="Professional arborist providing expert tree care service"
             className="w-full h-full object-cover brightness-[0.75]"
             fetchPriority="high"
