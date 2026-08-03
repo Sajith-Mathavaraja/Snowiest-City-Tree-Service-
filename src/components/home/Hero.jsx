@@ -54,7 +54,7 @@ const Hero = () => {
         {/* Mobile Hero Image - visible on mobile as LCP candidate (hidden on lg+) */}
         <div className="w-full lg:hidden relative h-[280px] mt-8 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
           <img
-            src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_75,w_640,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
+            src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_45,w_640,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
             alt="Professional arborist providing expert tree care service"
             className="w-full h-full object-cover brightness-[0.75]"
             fetchPriority="high"
@@ -70,7 +70,7 @@ const Hero = () => {
             className="w-full h-full rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative animate-scale-in"
           >
             <img 
-              src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
+              src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_50,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
               alt="Professional arborist climbing a majestic pine tree in winter"
               className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
               fetchPriority="high"
