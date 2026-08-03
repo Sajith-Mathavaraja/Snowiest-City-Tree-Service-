@@ -139,11 +139,9 @@ const SnowGlobe = () => {
             />
 
             {/* Dynamic Spinning Parent Container */}
-            <motion.div
-              initial={{ rotate: 0 }}
-              animate={{ rotate: parentRotation }}
-              transition={{ type: 'spring', stiffness: 90, damping: 16 }}
-              className="absolute inset-0 w-full h-full"
+            <div
+              className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out"
+              style={{ transform: `rotate(${parentRotation}deg)` }}
             >
               {/* Outer Service Segments placement (placed dynamically on the circle) */}
               {services.map((service, index) => {
@@ -153,28 +151,17 @@ const SnowGlobe = () => {
                 const angle = index * angleStep - Math.PI / 2;
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
-                const offset = radius === 105 ? 28 : 32;
 
                 return (
-                  <motion.button
+                  <button
                     key={service.id}
                     onClick={() => setActiveService(service)}
                     style={{
                       left: '50%',
                       top: '50%',
+                      transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${-parentRotation}deg)`
                     }}
-                    initial={{
-                      x: x - offset,
-                      y: y - offset,
-                      rotate: -parentRotation
-                    }}
-                    animate={{ 
-                      x: x - offset, // Center the button based on dynamic offset
-                      y: y - offset,
-                      rotate: -parentRotation 
-                    }}
-                    transition={{ type: 'spring', stiffness: 90, damping: 16 }}
-                    className={`absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full border flex flex-col items-center justify-center z-10 shadow-lg group ${
+                    className={`absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full border flex flex-col items-center justify-center z-10 shadow-lg group transition-all duration-700 ease-out ${
                       isActive 
                         ? 'bg-accent border-accent text-white scale-110 shadow-accent/25' 
                         : 'bg-white/10 hover:bg-white/20 border-white/20 text-gray-300 hover:text-white'
@@ -182,10 +169,10 @@ const SnowGlobe = () => {
                   >
                     <service.icon className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110" />
                     <span className="sr-only">{service.title}</span>
-                  </motion.button>
+                  </button>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Side: Service Details and Photos */}
