@@ -1,9 +1,11 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
+// Home is statically imported so the Hero renders immediately with no Suspense delay
+// This eliminates the 3,020ms LCP "element render delay" caused by lazy loading the landing page
+import Home from './pages/Home';
 
-// Lazy load route pages to split bundle size
-const Home = lazy(() => import('./pages/Home'));
+// Lazy load non-landing route pages — only visited after navigation, never on first paint
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const WhyUs = lazy(() => import('./pages/WhyUs'));
@@ -27,7 +29,8 @@ function App() {
     <Router basename="/">
       <ScrollToTop />
       <Layout>
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-background text-white/40">Loading page...</div>}>
+        {/* Invisible fallback — only shown when navigating to other pages, never on initial load */}
+        <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
