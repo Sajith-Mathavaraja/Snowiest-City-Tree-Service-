@@ -70,12 +70,18 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="w-full h-full rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative"
           >
-            <img 
-              src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg" 
-              alt="Professional arborist climbing a majestic pine tree in winter" 
-              className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
-              fetchPriority="high"
-            />
+            <picture>
+              <source 
+                media="(min-width: 1024px)" 
+                srcSet="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg" 
+              />
+              <img 
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                alt="Professional arborist climbing a majestic pine tree in winter" 
+                className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
+                fetchPriority="high"
+              />
+            </picture>
             {/* Soft dark vignette gradient to integrate with the layout */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1F2933]/60 via-transparent to-[#1F2933]/30 pointer-events-none" />
 
