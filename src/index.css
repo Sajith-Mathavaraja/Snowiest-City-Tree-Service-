@@ -88,14 +88,14 @@
   background-color: #2C3C4B;
 }
 .badge-accent-custom {
-  background-color: #1A2E3D; /* Solid dark blue slate */
-  color: #5CB0ED; /* Bright sky-blue accent for clear accessibility */
-  border: 1px solid rgba(92, 176, 237, 0.2);
+  background-color: #5CB0ED; /* Bright sky-blue background */
+  color: #0F172A; /* Deep dark charcoal/slate text for AAA contrast */
+  font-weight: 800; /* Extra bold text for supreme readability */
 }
 .badge-accent-custom-light {
-  background-color: #1A2E3D;
-  color: #5CB0ED;
-  border: 1px solid rgba(92, 176, 237, 0.2);
+  background-color: #5CB0ED;
+  color: #0F172A;
+  font-weight: 800;
 }
 
 /* Hardware-accelerated CSS animations for initial load page elements */

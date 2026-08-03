@@ -116,9 +116,9 @@ const SnowGlobe = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService.id}
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
+                  initial={{ scale: 0.9 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0.8 }}
                   transition={{ duration: 0.3 }}
                   className="flex flex-col items-center justify-center"
                 >
@@ -193,9 +193,9 @@ const SnowGlobe = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService.id}
-                initial={{ opacity: 0, x: 15 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
+                initial={{ x: 15 }}
+                animate={{ x: 0 }}
+                exit={{ x: -30 }}
                 transition={{ duration: 0.4 }}
                 className="glass-panel-custom rounded-3xl overflow-hidden shadow-2xl border border-white/15 flex flex-col md:flex-row h-auto md:h-[380px]"
               >
