@@ -6,6 +6,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: mode === 'production' ? '/Snowiest-City-Tree-Service-/' : '/',
   build: {
+    modulePreload: false,
     rollupOptions: {
       output: {
         manualChunks(id) {

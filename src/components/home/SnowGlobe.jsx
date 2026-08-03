@@ -116,7 +116,7 @@ const SnowGlobe = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService.id}
-                  initial={false}
+                  initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.8, opacity: 0 }}
                   transition={{ duration: 0.3 }}
@@ -140,6 +140,7 @@ const SnowGlobe = () => {
 
             {/* Dynamic Spinning Parent Container */}
             <motion.div
+              initial={{ rotate: 0 }}
               animate={{ rotate: parentRotation }}
               transition={{ type: 'spring', stiffness: 90, damping: 16 }}
               className="absolute inset-0 w-full h-full"
@@ -192,7 +193,7 @@ const SnowGlobe = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService.id}
-                initial={false}
+                initial={{ opacity: 0, x: 15 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.4 }}
