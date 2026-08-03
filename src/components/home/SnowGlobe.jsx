@@ -92,7 +92,7 @@ const SnowGlobe = () => {
 
   return (
     <section className="py-24 relative overflow-hidden" id="services">
-      <div className="absolute inset-0 bg-[#1F2933]/50" />
+      <div className="absolute inset-0 bg-[#16222F]" />
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Header */}
@@ -110,8 +110,8 @@ const SnowGlobe = () => {
             {/* Center Circle: Shows Current Active Service Logo and Name - Clickable redirect */}
             <button 
               onClick={handleBookNow}
-              className="w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full hover:bg-white/15 backdrop-blur-xl border border-white/20 flex flex-col items-center justify-center text-center p-4 sm:p-5 shadow-[0_0_50px_rgba(255,255,255,0.05)] z-20 transition-all duration-300 group/center cursor-pointer"
-              style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+              className="w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full hover:bg-white/15 border border-white/20 flex flex-col items-center justify-center text-center p-4 sm:p-5 shadow-[0_0_50px_rgba(255,255,255,0.05)] z-20 transition-all duration-300 group/center cursor-pointer"
+              style={{ backgroundColor: '#25323E' }}
             >
               <AnimatePresence mode="wait">
                 <motion.div
