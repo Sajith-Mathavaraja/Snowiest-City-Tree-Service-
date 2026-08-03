@@ -5,9 +5,8 @@ const Hero = () => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      const yOffset = -90;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      // Use scrollIntoView — native browser API, no JS layout read, no forced reflow
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 

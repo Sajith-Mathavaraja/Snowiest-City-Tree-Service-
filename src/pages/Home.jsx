@@ -26,7 +26,7 @@ const LazyMount = ({ children, height = '400px', id }) => {
           }
         },
         {
-          rootMargin: '50px', // Small margin to prevent premature viewport overlap triggers
+          rootMargin: '200px', // Pre-load 200px before visible so content is ready when user scrolls
         }
       );
 
@@ -41,11 +41,17 @@ const LazyMount = ({ children, height = '400px', id }) => {
   }, []);
 
   return (
-    <div id={id} ref={containerRef} style={{ minHeight: shouldRender ? 'auto' : height }}>
+    // Use CSS contain-intrinsic-size instead of JS inline style to avoid layout thrashing
+    <div
+      id={id}
+      ref={containerRef}
+      style={shouldRender ? undefined : { minHeight: height, containIntrinsicSize: `0 ${height}`, contentVisibility: 'auto' }}
+    >
       {shouldRender ? children : null}
     </div>
   );
 };
+
 
 const Home = () => {
   return (
