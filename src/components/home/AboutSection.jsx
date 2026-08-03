@@ -61,7 +61,7 @@ const AboutSection = () => {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-accent">{m.year}</span>
-                    <h5 className="font-heading font-bold text-white text-base">{m.title}</h5>
+                    <h4 className="font-heading font-bold text-white text-base">{m.title}</h4>
                     <p className="text-sm text-gray-300 mt-0.5">{m.desc}</p>
                   </div>
                 </div>

@@ -84,7 +84,7 @@ const SeasonalBanner = () => {
                   <AlertCircle size={13} className="text-accent" /> Season Alert Active
                 </span>
               </div>
-              <h4 className="text-2xl font-heading font-bold text-white mb-1">{currentSeasonData.title}</h4>
+              <h3 className="text-2xl font-heading font-bold text-white mb-1">{currentSeasonData.title}</h3>
               <p className="text-base text-gray-200 font-body max-w-2xl">{currentSeasonData.desc}</p>
             </div>
           </div>
