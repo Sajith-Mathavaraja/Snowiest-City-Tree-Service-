@@ -162,6 +162,11 @@ const SnowGlobe = () => {
                       left: '50%',
                       top: '50%',
                     }}
+                    initial={{
+                      x: x - offset,
+                      y: y - offset,
+                      rotate: -parentRotation
+                    }}
                     animate={{ 
                       x: x - offset, // Center the button based on dynamic offset
                       y: y - offset,
