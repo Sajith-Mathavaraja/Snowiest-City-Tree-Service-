@@ -7,7 +7,12 @@ export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? '/Snowiest-City-Tree-Service-/' : '/',
   resolve: {
     alias: {
-      'framer-motion': '/src/components/framer-motion-shim.jsx'
+      'framer-motion': '/src/components/framer-motion-shim.jsx',
+      'react-dom/client': '/src/components/react-preact-compat-shim.js',
+      'react-dom/test-utils': '/src/components/react-preact-compat-shim.js',
+      'react-dom': '/src/components/react-preact-compat-shim.js',
+      'react/jsx-runtime': 'preact/jsx-runtime',
+      'react': '/src/components/react-preact-compat-shim.js'
     }
   },
   build: {
