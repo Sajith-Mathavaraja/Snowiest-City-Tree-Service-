@@ -79,20 +79,23 @@
   background: #1F2933; 
 }
 
-/* Custom Glassmorphism styles to optimize Lighthouse background contrast detection */
+/* Custom Accessible Card styles to optimize Lighthouse background contrast detection */
 .glass-panel-custom {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #25323E; /* Solid winter charcoal slate for 100% accessible contrast ratio */
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .glass-panel-custom-hover:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #2C3C4B;
 }
 .badge-accent-custom {
-  background-color: rgba(92, 176, 237, 0.25);
+  background-color: #1A2E3D; /* Solid dark blue slate */
+  color: #5CB0ED; /* Bright sky-blue accent for clear accessibility */
+  border: 1px solid rgba(92, 176, 237, 0.2);
 }
 .badge-accent-custom-light {
-  background-color: rgba(92, 176, 237, 0.20);
+  background-color: #1A2E3D;
+  color: #5CB0ED;
+  border: 1px solid rgba(92, 176, 237, 0.2);
 }
 
 /* Hardware-accelerated CSS animations for initial load page elements */
