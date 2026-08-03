@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: '/',
+  // GitHub Pages serves from a subdirectory, Netlify serves from root
+  // GITHUB_PAGES env var is set automatically by actions/configure-pages
+  base: process.env.GITHUB_PAGES ? '/Snowiest-City-Tree-Service-/' : '/',
   resolve: {
     alias: {
       'framer-motion': '/src/components/framer-motion-shim.jsx',

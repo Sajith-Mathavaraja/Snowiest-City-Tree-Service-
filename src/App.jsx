@@ -26,7 +26,7 @@ const ScrollToTop = () => {
 
 function App() {
   return (
-    <Router basename="/">
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <Layout>
         {/* Invisible fallback — only shown when navigating to other pages, never on initial load */}
