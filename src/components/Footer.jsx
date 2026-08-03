@@ -29,7 +29,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-heading font-bold text-white mb-6">Our Services</h3>
+            <h2 className="text-lg font-heading font-bold text-white mb-6">Our Services</h2>
             <ul className="space-y-3 text-gray-300 text-sm">
               <li><a href="#services" className="hover:text-accent transition-colors">Tree Removal</a></li>
               <li><a href="#services" className="hover:text-accent transition-colors">Emergency Response</a></li>
@@ -41,7 +41,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-heading font-bold text-white mb-6">Quick Links</h3>
+            <h2 className="text-lg font-heading font-bold text-white mb-6">Quick Links</h2>
             <ul className="space-y-3 text-gray-300 text-sm">
               <li><a href="#home" className="hover:text-accent transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-accent transition-colors">About Us</a></li>
@@ -54,7 +54,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-6">Contact</h3>
+            <h2 className="text-lg font-heading font-semibold mb-6">Contact</h2>
             <ul className="space-y-4 text-gray-300">
               <li>9950 County Rd, Clarence Center, NY 14032</li>
               <li>315-375-7877</li>
