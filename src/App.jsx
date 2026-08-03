@@ -24,7 +24,7 @@ const ScrollToTop = () => {
 
 function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router basename="/">
       <ScrollToTop />
       <Layout>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-background text-white/40">Loading page...</div>}>
