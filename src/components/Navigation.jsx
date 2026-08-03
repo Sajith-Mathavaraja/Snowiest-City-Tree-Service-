@@ -96,7 +96,7 @@ const Navigation = () => {
     }
   }, [location.pathname, location.hash]);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id, retryCount = 0) => {
     setMenuOpen(false);
     
     if (location.pathname !== '/') {
@@ -118,6 +118,11 @@ const Navigation = () => {
         scrollTimeoutRef.current = setTimeout(() => {
           isScrollingRef.current = false;
         }, 800); // 800ms lock duration covers standard smooth scrolls
+      } else if (retryCount < 5) {
+        // Element not in DOM yet (lazy-mounted) — scroll toward bottom to trigger
+        // IntersectionObserver, then retry after a short delay
+        window.scrollBy({ top: 400, behavior: 'smooth' });
+        setTimeout(() => scrollToSection(id, retryCount + 1), 400);
       }
     }
   };

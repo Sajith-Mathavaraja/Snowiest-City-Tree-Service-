@@ -11,7 +11,7 @@ const Reviews = lazy(() => import('../components/home/Reviews'));
 const QuoteSection = lazy(() => import('../components/home/QuoteSection'));
 
 // Viewport-based lazy mounting helper to defer resource requests
-const LazyMount = ({ children, height = '400px' }) => {
+const LazyMount = ({ children, height = '400px', id }) => {
   const [shouldRender, setShouldRender] = useState(false);
   const containerRef = useRef(null);
 
@@ -41,7 +41,7 @@ const LazyMount = ({ children, height = '400px' }) => {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ minHeight: shouldRender ? 'auto' : height }}>
+    <div id={id} ref={containerRef} style={{ minHeight: shouldRender ? 'auto' : height }}>
       {shouldRender ? children : null}
     </div>
   );
@@ -85,14 +85,14 @@ const Home = () => {
       </LazyMount>
 
       {/* 6. Reviews Section */}
-      <LazyMount height="400px">
+      <LazyMount id="reviews" height="400px">
         <Suspense fallback={<div className="min-h-[400px] bg-transparent" />}>
           <Reviews />
         </Suspense>
       </LazyMount>
 
       {/* 7. Contact Section */}
-      <LazyMount height="500px">
+      <LazyMount id="contact" height="500px">
         <Suspense fallback={<div className="min-h-[500px] bg-transparent" />}>
           <QuoteSection />
         </Suspense>
