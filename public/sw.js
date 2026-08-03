@@ -1,10 +1,12 @@
-const CACHE_NAME = 'snowiest-city-cache-v3';
+const CACHE_NAME = 'snowiest-city-cache-v4';
 
 // Cache core document shells
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './favicon.svg'
+  './favicon.svg',
+  './canopy_bg_mobile.webp',
+  './canopy_bg_desktop.webp'
 ];
 
 self.addEventListener('install', (event) => {

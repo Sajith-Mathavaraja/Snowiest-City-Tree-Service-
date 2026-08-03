@@ -24,14 +24,14 @@ const Layout = ({ children }) => {
         <picture>
           <source 
             media="(max-width: 767px)" 
-            srcSet="https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=10&fm=webp" 
+            srcSet={`${import.meta.env.BASE_URL}canopy_bg_mobile.webp`} 
           />
           <source 
             media="(min-width: 768px)" 
-            srcSet="https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=15&fm=webp" 
+            srcSet={`${import.meta.env.BASE_URL}canopy_bg_desktop.webp`} 
           />
           <img 
-            src="https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=15&fm=webp" 
+            src={`${import.meta.env.BASE_URL}canopy_bg_desktop.webp`} 
             alt="Winter tree canopy background" 
             className="w-full h-full object-cover opacity-85"
             loading="eager"
