@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="flex-1 text-center lg:text-left max-w-2xl">
 
           <h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white mb-6 leading-[1.15] animate-fade-in-up"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white mb-6 leading-[1.15]"
           >
             Professional Tree Care <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-sage">
@@ -28,7 +28,7 @@ const Hero = () => {
           </h1>
 
           <p 
-            className="text-lg md:text-xl text-gray-200 mb-10 font-body leading-relaxed max-w-xl mx-auto lg:mx-0 animate-fade-in-up animation-delay-200 opacity-0"
+            className="text-lg md:text-xl text-gray-200 mb-10 font-body leading-relaxed max-w-xl mx-auto lg:mx-0"
           >
             Experience the premium standard in tree services. From emergency removals to seasonal pruning, our ISA-certified arborists deliver pristine property results.
           </p>
@@ -52,24 +52,31 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Content - Premium Photo with a suitable Lightly Dark Overlay */}
+        {/* Mobile Hero Image - visible on mobile as LCP candidate (hidden on lg+) */}
+        <div className="w-full lg:hidden relative h-[280px] mt-8 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+          <img
+            src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_800,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
+            alt="Professional arborist providing expert tree care service"
+            className="w-full h-full object-cover brightness-[0.75]"
+            fetchPriority="high"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1F2933]/60 to-transparent pointer-events-none" />
+        </div>
+
+        {/* Desktop Hero Image - hidden on mobile */}
         <div className="flex-1 w-full max-w-lg relative h-[480px] hidden lg:block select-none">
           {/* Main Arborist Image with atmospheric dark filter overlay */}
           <div
             className="w-full h-full rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative animate-scale-in"
           >
-            <picture>
-              <source 
-                media="(min-width: 1024px)" 
-                srcSet="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg" 
-              />
-              <img 
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-                alt="Professional arborist climbing a majestic pine tree in winter" 
-                className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
-                fetchPriority="high"
-              />
-            </picture>
+            <img 
+              src="https://res.cloudinary.com/qzlxlo1n/image/upload/f_webp,q_auto,w_1200,c_scale/v1785601203/hero_arborist_si2qaf.jpg"
+              alt="Professional arborist climbing a majestic pine tree in winter"
+              className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
+              fetchPriority="high"
+              loading="eager"
+            />
             {/* Soft dark vignette gradient to integrate with the layout */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1F2933]/60 via-transparent to-[#1F2933]/30 pointer-events-none" />
 
