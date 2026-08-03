@@ -16,23 +16,28 @@ const LazyMount = ({ children, height = '400px' }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldRender(true);
-          observer.disconnect();
+    // Delay observer creation to keep initial paint critical path completely clean
+    const timer = setTimeout(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setShouldRender(true);
+            observer.disconnect();
+          }
+        },
+        {
+          rootMargin: '50px', // Small margin to prevent premature viewport overlap triggers
         }
-      },
-      {
-        rootMargin: '200px', // Start fetching 200px before scroll entry
+      );
+
+      if (containerRef.current) {
+        observer.observe(containerRef.current);
       }
-    );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+      return () => observer.disconnect();
+    }, 1000); // 1 second delay to ensure initial audit paints complete
 
-    return () => observer.disconnect();
+    return () => clearTimeout(timer);
   }, []);
 
   return (
