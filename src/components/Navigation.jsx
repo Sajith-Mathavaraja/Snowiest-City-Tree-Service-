@@ -33,30 +33,39 @@ const Navigation = () => {
 
   // Robust, high-performance scroll listener for both header style and focal-point active section detection
   useEffect(() => {
+    let rafId = null;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      // Cancel any pending animation frame to throttle to one read per frame
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
 
-      // Only run scroll-spy on the homepage
-      if (location.pathname !== '/' || isScrollingRef.current) return;
+        // READ all layout values first (before any state writes) to avoid forced reflow
+        const scrollY = window.scrollY;
+        const isOnHome = location.pathname === '/';
+        const isScrolling = isScrollingRef.current;
 
-      const sectionIds = ['home', 'about', 'services', 'why-us', 'reviews', 'contact'];
-      let currentSection = 'home';
-      
-      // The visual focal point of the screen is at 30% of the viewport height
-      const focalPoint = window.innerHeight * 0.3;
-
-      for (const id of sectionIds) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          // If the element crosses the focal point line of the screen
-          if (rect.top <= focalPoint && rect.bottom >= focalPoint) {
-            currentSection = id;
-            break;
+        let currentSection = null;
+        if (isOnHome && !isScrolling) {
+          const sectionIds = ['home', 'about', 'services', 'why-us', 'reviews', 'contact'];
+          const focalPoint = window.innerHeight * 0.3;
+          for (const id of sectionIds) {
+            const el = document.getElementById(id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= focalPoint && rect.bottom >= focalPoint) {
+                currentSection = id;
+                break;
+              }
+            }
           }
         }
-      }
-      setActiveSection(currentSection);
+
+        // WRITE state after all reads are done — no forced reflow
+        setScrolled(scrollY > 20);
+        if (currentSection !== null) setActiveSection(currentSection);
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -65,6 +74,7 @@ const Navigation = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     };
   }, [location.pathname]);
@@ -87,8 +97,10 @@ const Navigation = () => {
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
+          // READ layout before any state writes to avoid forced reflow
           const yOffset = -90;
           const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          // WRITE: scroll and then update state
           window.scrollTo({ top: y, behavior: 'smooth' });
           setActiveSection(id);
         }
@@ -98,26 +110,27 @@ const Navigation = () => {
 
   const scrollToSection = (id, retryCount = 0) => {
     setMenuOpen(false);
-    
+
     if (location.pathname !== '/') {
       // Navigate to homepage with section hash
       navigate(`/#${id}`);
     } else {
-      // Scroll directly on homepage
-      setActiveSection(id);
       const element = document.getElementById(id);
       if (element) {
-        // Lock scroll spy updates during smooth scroll transition to prevent flickering
-        isScrollingRef.current = true;
-        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-
+        // READ layout properties BEFORE any state writes to avoid forced reflow
         const yOffset = -90;
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        // WRITE state and scroll after all reads are complete
+        isScrollingRef.current = true;
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+        setMenuOpen(false);
+        setActiveSection(id);
         window.scrollTo({ top: y, behavior: 'smooth' });
 
         scrollTimeoutRef.current = setTimeout(() => {
           isScrollingRef.current = false;
-        }, 800); // 800ms lock duration covers standard smooth scrolls
+        }, 800);
       } else if (retryCount < 5) {
         // Element not in DOM yet (lazy-mounted) — scroll toward bottom to trigger
         // IntersectionObserver, then retry after a short delay
