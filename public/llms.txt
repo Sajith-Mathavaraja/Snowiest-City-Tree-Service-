@@ -1,0 +1,14 @@
+# Snowiest City Tree Service
+
+> Professional arborist providing expert tree care service in Buffalo, Syracuse, and Rochester, NY.
+
+## Main Pages
+- [Home](/) - Homepage with arborist services, why choose us, reviews, and free estimate form.
+- [Services](/services) - Interactive tree care diagnostic and cost estimator tool.
+- [Solutions](/solutions) - Common tree problems, winter prep guide, and interactive tree health scanner.
+- [Reviews](/reviews) - Client reviews and testimonials.
+- [Coverage](/coverage) - Service area map for Buffalo, Rochester, and Syracuse.
+
+## Legal Pages
+- [Privacy Policy](/privacy) - Privacy Policy and SMS consent details.
+- [Terms of Service](/terms) - Terms of Service and age requirements.
