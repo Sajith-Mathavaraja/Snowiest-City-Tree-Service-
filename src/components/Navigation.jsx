@@ -179,6 +179,8 @@ const Navigation = () => {
                   src={`${import.meta.env.BASE_URL}logo.webp`} 
                   alt="Snowiest City Tree Service Logo" 
                   className="w-full h-full object-cover scale-[1.55]" 
+                  width={45}
+                  height={45}
                 />
               </div>
               <span 
@@ -221,6 +223,8 @@ const Navigation = () => {
               src={`${import.meta.env.BASE_URL}logo.webp`} 
               alt="Logo" 
               className="w-full h-full object-cover scale-[1.55]" 
+              width={35}
+              height={35}
             />
           </div>
           <span className="font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-[#3b9ae1] uppercase text-xs tracking-wider">

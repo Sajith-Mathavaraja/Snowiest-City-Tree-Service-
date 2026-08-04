@@ -59,6 +59,8 @@ const Hero = () => {
             className="w-full h-full object-cover brightness-[0.75]"
             fetchPriority="high"
             loading="eager"
+            width={640}
+            height={490}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1F2933]/60 to-transparent pointer-events-none" />
         </div>
@@ -75,6 +77,8 @@ const Hero = () => {
               className="w-full h-full object-cover brightness-[0.70] contrast-[1.05] saturate-[0.85] transition-all duration-500 hover:brightness-[0.80]"
               fetchPriority="high"
               loading="eager"
+              width={1200}
+              height={920}
             />
             {/* Soft dark vignette gradient to integrate with the layout */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1F2933]/60 via-transparent to-[#1F2933]/30 pointer-events-none" />
