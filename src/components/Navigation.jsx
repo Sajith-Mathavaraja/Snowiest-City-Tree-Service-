@@ -31,50 +31,59 @@ const Navigation = () => {
     { icon: <Phone size={22} />, id: 'contact' },
   ];
 
-  // Robust, high-performance scroll listener for both header style and focal-point active section detection
+  // High-performance scroll styling trigger using passive listener (reflow-free)
   useEffect(() => {
     let rafId = null;
-
     const handleScroll = () => {
-      // Cancel any pending animation frame to throttle to one read per frame
       if (rafId) return;
       rafId = requestAnimationFrame(() => {
         rafId = null;
-
-        // READ all layout values first (before any state writes) to avoid forced reflow
-        const scrollY = window.scrollY;
-        const isOnHome = location.pathname === '/';
-        const isScrolling = isScrollingRef.current;
-
-        let currentSection = null;
-        if (isOnHome && !isScrolling) {
-          const sectionIds = ['home', 'about', 'services', 'why-us', 'reviews', 'contact'];
-          const focalPoint = window.innerHeight * 0.3;
-          for (const id of sectionIds) {
-            const el = document.getElementById(id);
-            if (el) {
-              const rect = el.getBoundingClientRect();
-              if (rect.top <= focalPoint && rect.bottom >= focalPoint) {
-                currentSection = id;
-                break;
-              }
-            }
-          }
-        }
-
-        // WRITE state after all reads are done — no forced reflow
-        setScrolled(scrollY > 20);
-        if (currentSection !== null) setActiveSection(currentSection);
+        setScrolled(window.scrollY > 20);
       });
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Run once on load to establish current state
     handleScroll();
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
+  // IntersectionObserver-based active section detection (asynchronous, reflow-free)
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+
+    const sectionIds = ['home', 'about', 'services', 'why-us', 'reviews', 'contact'];
+    const activeSectionsMap = new Map();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          activeSectionsMap.set(entry.target.id, entry.isIntersecting);
+        });
+
+        // Find the first intersecting section in document order
+        const currentActive = sectionIds.find((id) => activeSectionsMap.get(id));
+        if (currentActive && !isScrollingRef.current) {
+          setActiveSection(currentActive);
+        }
+      },
+      {
+        rootMargin: '-20% 0px -40% 0px', // Focus region in viewport
+      }
+    );
+
+    // Observe each section after a short delay to ensure they are parsed
+    const timer = setTimeout(() => {
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     };
   }, [location.pathname]);
