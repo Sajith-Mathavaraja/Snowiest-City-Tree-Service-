@@ -1,4 +1,4 @@
-const CACHE_NAME = 'snowiest-city-cache-v8';
+const CACHE_NAME = 'snowiest-city-cache-v9';
 
 // Cache core document shells
 const ASSETS_TO_CACHE = [
