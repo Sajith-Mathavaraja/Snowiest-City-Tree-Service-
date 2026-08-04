@@ -41,11 +41,11 @@ const LazyMount = ({ children, height = '400px', id }) => {
   }, []);
 
   return (
-    // Use CSS contain-intrinsic-size instead of JS inline style to avoid layout thrashing
+    // Keep layout containment styles active permanently to prevent collapse/shift
     <div
       id={id}
       ref={containerRef}
-      style={shouldRender ? undefined : { minHeight: height, containIntrinsicSize: `0 ${height}`, contentVisibility: 'auto' }}
+      style={{ minHeight: height, containIntrinsicSize: `auto ${height}`, contentVisibility: 'auto' }}
     >
       {shouldRender ? children : null}
     </div>
@@ -60,23 +60,23 @@ const Home = () => {
       <Hero />
 
       {/* 2. About Section */}
-      <LazyMount height="400px">
-        <Suspense fallback={<div className="min-h-[400px] bg-transparent" />}>
+      <LazyMount height="550px">
+        <Suspense fallback={<div className="min-h-[550px] bg-transparent" />}>
           <AboutSection />
         </Suspense>
       </LazyMount>
 
       {/* 3. Services Section */}
-      <LazyMount height="600px">
-        <Suspense fallback={<div className="min-h-[600px] bg-transparent" />}>
+      <LazyMount height="650px">
+        <Suspense fallback={<div className="min-h-[650px] bg-transparent" />}>
           <SnowGlobe />
         </Suspense>
       </LazyMount>
 
       {/* 4. Why Us Section */}
       <section id="why-us">
-        <LazyMount height="800px">
-          <Suspense fallback={<div className="min-h-[800px] bg-transparent" />}>
+        <LazyMount height="1400px">
+          <Suspense fallback={<div className="min-h-[1400px] bg-transparent" />}>
             <Timeline />
             <EquipmentShowcase />
           </Suspense>
@@ -84,22 +84,22 @@ const Home = () => {
       </section>
 
       {/* 5. Project Gallery Section */}
-      <LazyMount height="500px">
-        <Suspense fallback={<div className="min-h-[500px] bg-transparent" />}>
+      <LazyMount height="650px">
+        <Suspense fallback={<div className="min-h-[650px] bg-transparent" />}>
           <ProjectGallery />
         </Suspense>
       </LazyMount>
 
       {/* 6. Reviews Section */}
-      <LazyMount id="reviews" height="400px">
-        <Suspense fallback={<div className="min-h-[400px] bg-transparent" />}>
+      <LazyMount id="reviews" height="550px">
+        <Suspense fallback={<div className="min-h-[550px] bg-transparent" />}>
           <Reviews />
         </Suspense>
       </LazyMount>
 
       {/* 7. Contact Section */}
-      <LazyMount id="contact" height="500px">
-        <Suspense fallback={<div className="min-h-[500px] bg-transparent" />}>
+      <LazyMount id="contact" height="900px">
+        <Suspense fallback={<div className="min-h-[900px] bg-transparent" />}>
           <QuoteSection />
         </Suspense>
       </LazyMount>
